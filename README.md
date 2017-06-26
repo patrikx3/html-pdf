@@ -33,6 +33,14 @@ https://nodejs.org/en/download/package-manager/
 
 Generates PDF from HTML with custom headers and footers with wkhtmltopdf
 
+# First version
+Since, the basic installation, we need scripts to startup the library:
+```bash
+sudo apt install wkhtmltopdf
+yarn install p3x-html-pdf
+```
+
+Soon, it will work with Windows and OSX as well.
 
 [//]: #@corifeus-footer
 
