@@ -1,0 +1,42 @@
+{
+    "name": "p3x-html-pdf",
+    "version": "1.0.4-3",
+    "corifeus": {
+        "prefix": "p3x-",
+        "publish": true,
+        "type": "p3x",
+        "code": "Direct"
+    },
+    "license": "MIT",
+    "description": "Generates PDF from HTML with custom headers and footers with wkhtmltopdf",
+    "main": "src/index.js",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "test": "grunt"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/patrikx3/html-pdf.git"
+    },
+    "keywords": [
+        "freenom",
+        "promise",
+        "api"
+    ],
+    "author": "Patrik Laszlo <alabard@gmail.com>",
+    "bugs": {
+        "url": "https://github.com/patrikx3/html-pdf/issues"
+    },
+    "homepage": "https://pages.corifeus.tk/html-pdf",
+    "devDependencies": {
+        "corifeus-builder": "^1.7.669-24"
+    },
+    "dependencies": {
+        "corifeus-utils": "^1.1.338-32"
+    },
+    "engines": {
+        "node": ">=7.8.0"
+    }
+}
