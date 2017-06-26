@@ -5,7 +5,6 @@
   
 [![NPM](https://nodei.co/npm/p3x-html-pdf.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/p3x-html-pdf/)
 ---
-
  
 # Generates PDF from HTML with custom headers and footers with wkhtmltopdf
 
@@ -30,6 +29,10 @@ https://nodejs.org/en/download/package-manager/
 
                         
 [//]: #@corifeus-header:end
+
+
+Generates PDF from HTML with custom headers and footers with wkhtmltopdf
+
 
 [//]: #@corifeus-footer
 
