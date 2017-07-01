@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href=file:///home/patrikx3/Projects/patrikx3/p3x/html-pdf/test/fixtures/">
+    <link rel="stylesheet" href="ngivr-html-template/ngivr-html-template.css">
+
+    <script type="text/javascript" src="file:///home/patrikx3/Projects/patrikx3/p3x/html-pdf/node_modules/jquery/dist/jquery.slim.min.js"></script>
+
+    <style type="text/css">
+
+        .ngivr-template-page-break {
+            height: 0px;
+            border-top-style: none;
+        }
+
+        ngivr-html-template-include {
+            background-color: transparent;
+        }
+
+    </style>
+    <script type="text/javascript">
+        var vars = {};
+        function subst() {
+            var query_strings_from_url = document.location.search.substring(1).split('&');
+            for (var query_string in query_strings_from_url) {
+                if (query_strings_from_url.hasOwnProperty(query_string)) {
+                    var temp_var = query_strings_from_url[query_string].split('=', 2);
+                    vars[temp_var[0]] = decodeURI(temp_var[1]);
+                }
+            }
+            var css_selector_classes = ['page', 'frompage', 'topage', 'webpage', 'section', 'subsection', 'date', 'isodate', 'time', 'title', 'doctitle', 'sitepage', 'sitepages'];
+            for (var css_class in css_selector_classes) {
+                if (css_selector_classes.hasOwnProperty(css_class)) {
+                    var element = document.getElementsByClassName(css_selector_classes[css_class]);
+                    for (var j = 0; j < element.length; ++j) {
+                        element[j].textContent = vars[css_selector_classes[css_class]];
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body  onload="subst()">
+    <img src="ngivr-html-template/sygnus-logo.png"/>
+
+</body></html>

@@ -5,6 +5,7 @@
   
 [![NPM](https://nodei.co/npm/p3x-html-pdf.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/p3x-html-pdf/)
 ---
+
  
 # Generates PDF from HTML with custom headers and footers with wkhtmltopdf
 
@@ -17,7 +18,7 @@ This is an open source project. Just code.
    
 ### Built on Node 
 ``` 
-v8.1.2
+v8.1.3
 ```   
    
 The ```async``` and ```await``` keywords are required.
@@ -36,18 +37,19 @@ Generates PDF from HTML with custom headers and footers with wkhtmltopdf
 # First version
 Since, the basic installation, we need scripts to startup the library:
 ```bash
-sudo apt install wkhtmltopdf
 yarn install p3x-html-pdf
 ```
+
+
 
 Soon, it will work with Windows and OSX as well.
 
 [//]: #@corifeus-footer
 
 ---
-[**P3X-HTML-PDF**](https://pages.corifeus.tk/html-pdf) Build v1.0.4-3
+
+[**P3X-HTML-PDF**](https://pages.corifeus.tk/html-pdf) Build v1.0.33-38
 
 [Corifeus](http://www.corifeus.tk) by [Patrik Laszlo](http://patrikx3.tk)
-
 
 [//]: #@corifeus-footer:end

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="${base}">
+    <link rel="stylesheet" href="${css}">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script>
+        var items = ${settings.html};
+
+        // qr-hack //
+
+        var vars = {};
+        var query_strings_from_url = document.location.search.substring(1).split('&');
+        for (var query_string in query_strings_from_url) {
+            if (query_strings_from_url.hasOwnProperty(query_string)) {
+                var temp_var = query_strings_from_url[query_string].split('=', 2);
+                vars[temp_var[0]] = decodeURI(temp_var[1]);
+            }
+        }
+        var varNames = ['page', 'frompage', 'topage', 'webpage', 'section', 'subsection', 'date', 'isodate', 'time', 'title', 'doctitle', 'sitepage', 'sitepages'];
+        vars.pages = vars.topage
+
+        // headerOrFooter 1 = header, 2 == footer
+        // headerOrFooter //
+        var baseSelector = 'p3x-' + (headerOrFooter == 1 ? 'header' : 'footer');
+
+        $(document).ready(function () {
+
+            var itemName = baseSelector + '-' + vars.page;
+            var item = '';
+            if (items.hasOwnProperty(itemName)) {
+                item = items[itemName]
+            } else {
+                item = items[baseSelector];
+            };
+            // lodash-template-hack //
+            var $item = $(item);
+            var $body = $('body');
+            $body.append($item );
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>
