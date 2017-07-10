@@ -1,6 +1,6 @@
 {
     "name": "p3x-html-pdf",
-    "version": "1.0.33-38",
+    "version": "1.0.44-45",
     "corifeus": {
         "prefix": "p3x-",
         "publish": true,
@@ -33,13 +33,13 @@
     "bugs": {
         "url": "https://github.com/patrikx3/html-pdf/issues"
     },
-    "homepage": "https://pages.corifeus.tk/html-pdf",
+    "homepage": "https://pages.corifeus.com/html-pdf",
     "devDependencies": {
-        "corifeus-builder": "^1.7.685-33"
+        "corifeus-builder": "^1.7.700-39"
     },
     "dependencies": {
-        "cheerio": "^1.0.0-rc.1",
-        "corifeus-utils": "^1.1.346-40",
+        "cheerio": "^1.0.0-rc.2",
+        "corifeus-utils": "^1.1.359-54",
         "fs-extra": "^3.0.1",
         "progress": "^2.0.0"
     },

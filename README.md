@@ -48,8 +48,8 @@ Soon, it will work with Windows and OSX as well.
 
 ---
 
-[**P3X-HTML-PDF**](https://pages.corifeus.tk/html-pdf) Build v1.0.33-38
+[**P3X-HTML-PDF**](https://pages.corifeus.com/html-pdf) Build v1.0.44-45
 
-[Corifeus](http://www.corifeus.tk) by [Patrik Laszlo](http://patrikx3.tk)
+[Corifeus](http://www.corifeus.com) by [Patrik Laszlo](http://patrikx3.com)
 
 [//]: #@corifeus-footer:end
