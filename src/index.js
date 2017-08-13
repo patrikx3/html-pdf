@@ -78,7 +78,8 @@ const generate = async (options) => {
          */
 
 
-        $('ngivr-html-template-include').remove();
+        $('ngivr-html-template-include .p3x-header').remove();
+        $('ngivr-html-template-include .p3x-footer').remove();
         html = $.html();
 
         html = html.replace(/\${qr}/g, options.settings.qr)
