@@ -122,7 +122,7 @@ var qr = ${JSON.stringify(mainsSettings.settings.qr)};
 
         console.debug('html', html)
         console.debug('header', header)
-       console.debug('footer', footer)
+        console.debug('footer', footer)
 
         tmpHtmlPath = await utils.fs.ensureTempFile(html, 'html')
         tmpHtmlPathHeader = await utils.fs.ensureTempFile(header, 'html')
