@@ -48,7 +48,7 @@ Soon, it will work with Windows and OSX as well.
 
 ---
 
-[**P3X-HTML-PDF**](https://pages.corifeus.com/html-pdf) Build v1.1.20-9
+[**P3X-HTML-PDF**](https://pages.corifeus.com/html-pdf) Build v1.1.22-10
 
 [Corifeus](http://www.corifeus.com) by [Patrik Laszlo](http://patrikx3.com)
 
