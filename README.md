@@ -1,6 +1,6 @@
 [//]: #@corifeus-header
 
-  [![Build Status](https://travis-ci.org/patrikx3/html-pdf.svg?branch=master)](https://travis-ci.org/patrikx3/html-pdf)  [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/patrikx3/html-pdf/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/patrikx3/html-pdf/?branch=master)  [![Code Coverage](https://scrutinizer-ci.com/g/patrikx3/html-pdf/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/patrikx3/html-pdf/?branch=master) 
+  [![Build Status](https://travis-ci.org/patrikx3/.svg?branch=master)](https://travis-ci.org/patrikx3/)  [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/patrikx3//badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/patrikx3//?branch=master)  [![Code Coverage](https://scrutinizer-ci.com/g/patrikx3//badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/patrikx3//?branch=master) 
 
   
 [![NPM](https://nodei.co/npm/p3x-html-pdf.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/p3x-html-pdf/)
@@ -48,7 +48,7 @@ Soon, it will work with Windows and OSX as well.
 
 ---
 
-[**P3X-HTML-PDF**](https://pages.corifeus.com/html-pdf) Build v1.1.22-10
+[**P3X-HTML-PDF**](https://pages.corifeus.com/html-pdf) Build v1.1.25-13
 
 [Corifeus](http://www.corifeus.com) by [Patrik Laszlo](http://patrikx3.com)
 
