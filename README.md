@@ -18,7 +18,7 @@ This is an open source project. Just code.
    
 ### Built on Node 
 ``` 
-v8.6.0
+v8.7.0
 ```   
    
 The ```async``` and ```await``` keywords are required.
@@ -48,7 +48,7 @@ Soon, it will work with Windows and OSX as well.
 
 ---
 
-[**P3X-HTML-PDF**](https://pages.corifeus.com/html-pdf) Build v1.1.46-28 
+[**P3X-HTML-PDF**](https://pages.corifeus.com/html-pdf) Build v1.1.49-30 
 
 [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software) 
  
