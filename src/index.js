@@ -142,7 +142,7 @@ var qr = ${JSON.stringify(mainsSettings.settings.qr)};
 
 // --javascript-delay 1000
 //
-        const generatePdfCommand = `${binpath} --copies ${settings.template.copies} --margin-top ${marginTop}    ${debug ? '--debug-javascript' : ''} --title ${JSON.stringify(title + ' ' + new Date().toLocaleString(   ))} --orientation ${startCase(settings.template.orientation)} --page-size ${settings.template.format}  ${tmpHtmlPath} --header-html ${tmpHtmlPathHeader} --footer-html ${tmpHtmlPathFooter} ${tmpPdfPath}`;
+        const generatePdfCommand = `${binpath} --copies ${settings.template.copies} --margin-bottom ${marginBottom} --margin-top ${marginTop}    ${debug ? '--debug-javascript' : ''} --title ${JSON.stringify(title + ' ' + new Date().toLocaleString(   ))} --orientation ${startCase(settings.template.orientation)} --page-size ${settings.template.format}  ${tmpHtmlPath} --header-html ${tmpHtmlPathHeader} --footer-html ${tmpHtmlPathFooter} ${tmpPdfPath}`;
 
         console.debug('generatePdfCommand', generatePdfCommand);
 
