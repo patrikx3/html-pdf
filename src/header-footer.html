@@ -24,24 +24,23 @@
         // headerOrFooter //
         var baseSelector = 'p3x-' + (headerOrFooter == 1 ? 'header' : 'footer');
 
-        $(document).ready(function () {
-
-            var itemName = baseSelector + '-' + vars.page;
-            var item = '';
-            if (items.hasOwnProperty(itemName)) {
-                item = items[itemName]
-            } else {
-                item = items[baseSelector];
-            };
-            // lodash-template-hack //
-            var $item = $(item);
-            var $body = $('body');
-            $body.append($item );
-
-        });
     </script>
 </head>
 <body>
+
+<script>
+    var itemName = baseSelector + '-' + vars.page;
+    var item = '';
+    if (items.hasOwnProperty(itemName)) {
+        item = items[itemName]
+    } else {
+        item = items[baseSelector];
+    };
+    // lodash-template-hack //
+    var $item = $(item);
+    var $body = $('body');
+    $body.append($item );
+</script>
 
 </body>
 </html>

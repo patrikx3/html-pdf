@@ -2,9 +2,7 @@ const utils = require('corifeus-utils');
 
 const os = require('os');
 const path = require('path');
-const fs = require('fs');
 const fsExtra = require('fs-extra');
-const mz = require('mz');
 // https://api.github.com/repos/wkhtmltopdf/wkhtmltopdf/tags
 // https://api.github.com/repos/wkhtmltopdf/wkhtmltopdf/releases/latest
 
@@ -27,6 +25,10 @@ const install = async() => {
         if (arch === 'x64') {
             archSearch = 'amd64';
         }
+    } else if (platform === 'win32' && arch === 'x64') {
+        // wkhtmltox-0.12.4_mingw-w64-cross-win64.exe
+        platformSearch = 'mingw-w64-cross';
+        archSearch = 'win64';
     }
 
     if (platformSearch === undefined || archSearch === undefined) {
@@ -49,7 +51,6 @@ const install = async() => {
     }
 
     console.log(`Found the latest release: ${findReleaseAsset.browser_download_url}`);
-
 
     await utils.fs.ensureDir(binPath);
 
@@ -76,9 +77,14 @@ const install = async() => {
 
     await releaseBinaryFile;
 
-    console.log(`Decompress ${releaseBinaryFileName}`);
 
-    await utils.childProcess.exec(`tar -xvf ${releaseBinaryFileName} -C ${binPath}`, true)
+    if (platform === 'linux') {
+        console.log(`Decompress ${releaseBinaryFileName}`);
+        await utils.childProcess.exec(`tar -xvf ${releaseBinaryFileName} -C ${binPath}`, true)
+    } else if (platformSearch === 'mingw-w64-cross') {
+        console.log(`Install ${releaseBinaryFileName}`);
+        await utils.childProcess.exec(`${releaseBinaryFileName} /S /D=${binPath}`, true)
+    }
 
     console.log(`Delete ${releaseBinaryFileName} file`);
     await fsExtra.remove(releaseBinaryFileName)

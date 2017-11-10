@@ -7,11 +7,17 @@ const cleanDeep = require('lodash/cloneDeep');
 const cheerio = require('cheerio')
 const startCase = require('lodash/startCase');
 
-const binpath = path.resolve(`${__dirname}/../release/wkhtmltox/bin/wkhtmltopdf`);
+const os = require('os');
+const binPathAddon = os.platform() === 'win32' ? '' : 'wkhtmltox/';
+
+const binpath = path.resolve(`${__dirname}/../release/${binPathAddon}bin/wkhtmltopdf`);
 
 const generate = async (options) => {
-
     const {settings, saveFile, base, debug, title} = options;
+
+    const isFixed = () => {
+        return settings.template.fixedWidth > 0 && settings.template.fixedHeight
+    }
 
     const save = settings.hasOwnProperty('save') && settings.save === true;
 
@@ -44,7 +50,7 @@ const generate = async (options) => {
         $id.each((index, element) => {
             const $element = $(element)
             const $parent = $element.parent();
-            console.debug($parent.html());
+//            console.debug($parent.html());
             const id = $element.attr('id');
             if (id.startsWith('p3x-header')) {
                 header[id] = $parent.html();
@@ -58,8 +64,8 @@ const generate = async (options) => {
         })
 
 
-        console.debug('marginTop', marginTop);
-        console.debug('marginBottom', marginBottom);
+//        console.debug('marginTop', marginTop);
+//        console.debug('marginBottom', marginBottom);
 
         /*
          page: <span class="page"></span>
@@ -111,38 +117,45 @@ var qr = ${JSON.stringify(mainsSettings.settings.qr)};
         }
 
         const headResult = headerOrFooter(header, 1)
-        const headerSettings = headResult.mainSettings;
+//        const headerSettings = headResult.mainSettings;
         header = headResult.data;
         const footResult = headerOrFooter(footer, 2)
-        const footerSettings = footResult.mainSettings;
+//        const footerSettings = footResult.mainSettings;
         footer = footResult.data;
 
-        console.debug('headerSettings', headerSettings)
-        console.debug('footerSettings', footerSettings)
+//        console.debug('headerSettings', headerSettings)
+//        console.debug('footerSettings', footerSettings)
 
-        console.debug('html', html)
-        console.debug('header', header)
-        console.debug('footer', footer)
+//        console.debug('html', html)
+//        console.debug('header', header)
 
         tmpHtmlPath = await utils.fs.ensureTempFile(html, 'html')
         tmpHtmlPathHeader = await utils.fs.ensureTempFile(header, 'html')
         tmpHtmlPathFooter = await utils.fs.ensureTempFile(footer, 'html')
         tmpPdfPath = await utils.fs.tempFileName('pdf');
 
-        console.debug('tmpHtmlPath', tmpHtmlPath);
-        console.debug('tmpPdfPath', tmpPdfPath);
+//        console.debug('footer', footer)
+//        console.debug('tmpHtmlPath', tmpHtmlPath);
+//        console.debug('tmpPdfPath', tmpPdfPath);
 
 // --header-html ${tmpHtmlPath}  --footer-html ${tmpHtmlPath}
-/*
- -B, --margin-bottom <unitreal>      Set the page bottom margin
- -L, --margin-left <unitreal>        Set the page left margin (default 10mm)
- -R, --margin-right <unitreal>       Set the page right margin (default 10mm)
- -T, --margin-top <unitreal>         Set the page top margin
- */
+        /*
+         -B, --margin-bottom <unitreal>      Set the page bottom margin
+         -L, --margin-left <unitreal>        Set the page left margin (default 10mm)
+         -R, --margin-right <unitreal>       Set the page right margin (default 10mm)
+         -T, --margin-top <unitreal>         Set the page top margin
+         */
 
-// --javascript-delay 1000
 //
-        const generatePdfCommand = `${binpath} --copies ${settings.template.copies} --margin-bottom ${marginBottom} --margin-top ${marginTop}    ${debug ? '--debug-javascript' : ''} --title ${JSON.stringify(title + ' ' + new Date().toLocaleString(   ))} --orientation ${startCase(settings.template.orientation)} --page-size ${settings.template.format}  ${tmpHtmlPath} --header-html ${tmpHtmlPathHeader} --footer-html ${tmpHtmlPathFooter} ${tmpPdfPath}`;
+//
+        let addOn = '';
+        if (isFixed()) {
+            marginTop = '0mm';
+            marginBottom = '0mm';
+            addOn = `--margin-left 0mm --margin-right 0mm`
+        }
+        const pageSize = isFixed() ? `--page-width ${settings.template.fixedWidth}mm --page-height ${settings.template.fixedHeight}mm` : `--page-size ${settings.template.format}`;
+        const generatePdfCommand = `${binpath} --javascript-delay 3000 --copies ${settings.template.copies} --margin-bottom ${marginBottom} --margin-top ${marginTop}  ${addOn}  ${debug ? '--debug-javascript' : ''} --title ${JSON.stringify(title + ' ' + new Date().toLocaleString(   ))} --orientation ${startCase(settings.template.orientation)} ${pageSize} ${tmpHtmlPath} --header-html ${tmpHtmlPathHeader} --footer-html ${tmpHtmlPathFooter} ${tmpPdfPath}`;
 
         console.debug('generatePdfCommand', generatePdfCommand);
 
@@ -166,7 +179,7 @@ var qr = ${JSON.stringify(mainsSettings.settings.qr)};
         if (!save && tmpPdfPath !== undefined) {
             await fsExtra.remove(tmpPdfPath);
         }
-        console.debug = consoleDebugOriginal;
+//        console.debug = consoleDebugOriginal;
     }
 }
 module.exports.generate = generate;
