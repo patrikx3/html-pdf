@@ -40,9 +40,11 @@ Since, the basic installation, we need scripts to startup the library:
 yarn install p3x-html-pdf
 ```
 
+Soon, it will work with OSX as well.
 
+It is a ```microservice``` that I created for my job with Sygnus.
 
-Soon, it will work with Windows and OSX as well.
+Given of the amount of code I write, sometimes it takes to write documentation.
 
 [//]: #@corifeus-footer
 
