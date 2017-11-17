@@ -83,7 +83,8 @@ const install = async() => {
         await utils.childProcess.exec(`tar -xvf ${releaseBinaryFileName} -C ${binPath}`, true)
     } else if (platformSearch === 'mingw-w64-cross') {
         console.log(`Install ${releaseBinaryFileName}`);
-        await utils.childProcess.exec(`${releaseBinaryFileName} /S /D=${binPath}`, true)
+        const winCommand = `cmd.exe /v /c "set binpath=${binPath} && \"${releaseBinaryFileName}\" /S /D=!binpath! && echo !binpath!"`;
+        await utils.childProcess.exec(winCommand, true)
     }
 
     console.log(`Delete ${releaseBinaryFileName} file`);
