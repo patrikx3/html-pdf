@@ -133,7 +133,7 @@ var qr = ${JSON.stringify(mainsSettings.settings.qr)};
         tmpHtmlPathHeader = await utils.fs.ensureTempFile(header, 'html')
         tmpHtmlPathFooter = await utils.fs.ensureTempFile(footer, 'html')
         tmpPdfPath = await utils.fs.tempFileName('pdf');
-
+        await utils.timer.wait(3000);
 //        console.debug('footer', footer)
 //        console.debug('tmpHtmlPath', tmpHtmlPath);
 //        console.debug('tmpPdfPath', tmpPdfPath);
@@ -155,7 +155,7 @@ var qr = ${JSON.stringify(mainsSettings.settings.qr)};
             addOn = `--margin-left 0mm --margin-right 0mm`
         }
         const pageSize = isFixed() ? `--page-width ${settings.template.fixedWidth}mm --page-height ${settings.template.fixedHeight}mm` : `--page-size ${settings.template.format}`;
-        const generatePdfCommand = `${binpath} --javascript-delay 3000 --copies ${settings.template.copies} --margin-bottom ${marginBottom} --margin-top ${marginTop}  ${addOn}  ${debug ? '--debug-javascript' : ''} --title ${JSON.stringify(title + ' ' + new Date().toLocaleString(   ))} --orientation ${startCase(settings.template.orientation)} ${pageSize} ${tmpHtmlPath} --header-html ${tmpHtmlPathHeader} --footer-html ${tmpHtmlPathFooter} ${tmpPdfPath}`;
+        const generatePdfCommand = `${binpath} --javascript-delay 1000 --copies ${settings.template.copies} --margin-bottom ${marginBottom} --margin-top ${marginTop}  ${addOn}  ${debug ? '--debug-javascript' : ''} --title ${JSON.stringify(title + ' ' + new Date().toLocaleString(   ))} --orientation ${startCase(settings.template.orientation)} ${pageSize} ${tmpHtmlPath} --header-html ${tmpHtmlPathHeader} --footer-html ${tmpHtmlPathFooter} ${tmpPdfPath}`;
 
         console.debug('generatePdfCommand', generatePdfCommand);
 
