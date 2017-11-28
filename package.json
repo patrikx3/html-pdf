@@ -1,6 +1,6 @@
 {
     "name": "p3x-html-pdf",
-    "version": "1.1.154-90",
+    "version": "1.1.155-91",
     "corifeus": {
         "prefix": "p3x-",
         "publish": true,
