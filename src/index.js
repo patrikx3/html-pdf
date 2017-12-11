@@ -133,7 +133,6 @@ var qr = ${JSON.stringify(mainsSettings.settings.qr)};
         tmpHtmlPathHeader = await utils.fs.ensureTempFile(header, 'html')
         tmpHtmlPathFooter = await utils.fs.ensureTempFile(footer, 'html')
         tmpPdfPath = await utils.fs.tempFileName('pdf');
-        await utils.timer.wait(3000);
 //        console.debug('footer', footer)
 //        console.debug('tmpHtmlPath', tmpHtmlPath);
 //        console.debug('tmpPdfPath', tmpPdfPath);
