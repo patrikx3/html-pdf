@@ -8,7 +8,8 @@ const cheerio = require('cheerio')
 const startCase = require('lodash/startCase');
 
 const os = require('os');
-const binPathAddon = os.platform() === 'win32' ? '' : 'wkhtmltox/';
+const isWin = os.platform() === 'win32';
+const binPathAddon = isWin ? '' : 'wkhtmltox/';
 
 const binpath = path.resolve(`${__dirname}/../release/${binPathAddon}bin/wkhtmltopdf`);
 
@@ -21,7 +22,7 @@ const generate = async (options) => {
 
     const save = settings.hasOwnProperty('save') && settings.save === true;
 
-    const consoleDebugOriginal = console.debug;
+//    const consoleDebugOriginal = console.debug;
     if (debug) {
         console.debug = console.info;
     } else {
@@ -37,6 +38,7 @@ const generate = async (options) => {
         const baseHtmlFooterHeader = (await fs.readFile(`${__dirname}/header-footer.html`)).toString();
 
         let html = template(baseHtml)(options)
+
         let $ = cheerio.load(html);
 
         const $id = $('[id]');
@@ -151,7 +153,7 @@ var qr = ${JSON.stringify(mainsSettings.settings.qr)};
         if (isFixed()) {
             marginTop = '0mm';
             marginBottom = '0mm';
-            addOn = `--margin-left 0mm --margin-right 0mm`
+            addOn += ` --margin-left 0mm --margin-right 0mm`
         }
         const pageSize = isFixed() ? `--page-width ${settings.template.fixedWidth}mm --page-height ${settings.template.fixedHeight}mm` : `--page-size ${settings.template.format}`;
         const generatePdfCommand = `${binpath} --javascript-delay 1000 --copies ${settings.template.copies} --margin-bottom ${marginBottom} --margin-top ${marginTop}  ${addOn}  ${debug ? '--debug-javascript' : ''} --title ${JSON.stringify(title + ' ' + new Date().toLocaleString(   ))} --orientation ${startCase(settings.template.orientation)} ${pageSize} ${tmpHtmlPath} --header-html ${tmpHtmlPathHeader} --footer-html ${tmpHtmlPathFooter} ${tmpPdfPath}`;
