@@ -15,6 +15,7 @@ const binpath = path.resolve(`${__dirname}/../release/${binPathAddon}bin/wkhtmlt
 
 const generate = async (options) => {
     const {settings, saveFile, base, debug, title} = options;
+    let {javascriptDelay} = options;
 
     const isFixed = () => {
         return settings.template.fixedWidth > 0 && settings.template.fixedHeight
@@ -149,6 +150,10 @@ var qr = ${JSON.stringify(mainsSettings.settings.qr)};
 
 //
 //
+        if (javascriptDelay === undefined) {
+            javascriptDelay = 1000;
+        }
+
         let addOn = '';
         if (isFixed()) {
             marginTop = '0mm';
@@ -156,7 +161,7 @@ var qr = ${JSON.stringify(mainsSettings.settings.qr)};
             addOn += ` --margin-left 0mm --margin-right 0mm`
         }
         const pageSize = isFixed() ? `--page-width ${settings.template.fixedWidth}mm --page-height ${settings.template.fixedHeight}mm` : `--page-size ${settings.template.format}`;
-        const generatePdfCommand = `${binpath} --javascript-delay 1000 --copies ${settings.template.copies} --margin-bottom ${marginBottom} --margin-top ${marginTop}  ${addOn}  ${debug ? '--debug-javascript' : ''} --title ${JSON.stringify(title + ' ' + new Date().toLocaleString(   ))} --orientation ${startCase(settings.template.orientation)} ${pageSize} ${tmpHtmlPath} --header-html ${tmpHtmlPathHeader} --footer-html ${tmpHtmlPathFooter} ${tmpPdfPath}`;
+        const generatePdfCommand = `${binpath} --javascript-delay ${javascriptDelay} --copies ${settings.template.copies} --margin-bottom ${marginBottom} --margin-top ${marginTop}  ${addOn}  ${debug ? '--debug-javascript' : ''} --title ${JSON.stringify(title + ' ' + new Date().toLocaleString())} --orientation ${startCase(settings.template.orientation)} ${pageSize} ${tmpHtmlPath} --header-html ${tmpHtmlPathHeader} --footer-html ${tmpHtmlPathFooter} ${tmpPdfPath}`;
 
         console.debug('generatePdfCommand', generatePdfCommand);
 
