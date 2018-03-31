@@ -44,7 +44,7 @@ const install = async() => {
     const headers = {};
 
     if (process.env.hasOwnProperty('GITHUB_TOKEN')) {
-        headers['Authorization'] = `token ${GITHUB_TOKEN}`
+        headers['Authorization'] = `token ${process.env.GITHUB_TOKEN}`
         console.log(`Found GITHUB_TOKEN, using as GitHub authorization.`)
     }
 
