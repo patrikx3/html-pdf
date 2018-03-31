@@ -41,24 +41,17 @@ const install = async() => {
 
     console.log(`Downloading latest release for wkhtmltopdf`);
 
-    const p = 'fSdrzLj3rcAgeZapTXcfyfQRBVe4xlu2';
-    const fun = Array.from('s' + 's' + 'a' + 'p').reverse().join('');
-    const results = await Promise.all([
-        utils.crypto.decrypt({
-            data: '784106f62ff03f400ef74b71258cf3b7',
-            [fun]: p,
-        }),
-        utils.crypto.decrypt({
-            data: '2f3ecab5f49d5a02605125f50a777bd4bbf1ddb5b0c32a8edb16506269c6cb5034e00d891091f999c0e029194a2a38e5',
-            [fun]: p,
-        }),
-    ])
+    const headers = {};
+
+    if (process.env.hasOwnProperty('GITHUB_TOKEN')) {
+        headers['Authorization'] = `token ${GITHUB_TOKEN}`
+        console.log(`Found GITHUB_TOKEN, using as GitHub authorization.`)
+    }
+
 
     const { body } = await utils.http.request({
         url: currentRelease,
-        headers: {
-            [results[0]]: results[1],
-        }
+        headers: headers
     });
     const findReleaseAsset = body.assets.find((asset) => {
         return asset.browser_download_url.includes(platformSearch) && asset.browser_download_url.includes(archSearch);
