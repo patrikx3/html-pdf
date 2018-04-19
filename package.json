@@ -9,7 +9,7 @@
         "nodejs": "v9.11.1"
     },
     "license": "MIT",
-    "description": "Generates PDF from HTML with custom headers and footers with wkhtmltopdf",
+    "description": "📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf",
     "main": "src/index.js",
     "directories": {
         "test": "test"

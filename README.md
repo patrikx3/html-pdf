@@ -6,7 +6,7 @@
 
 
  
-# Generates PDF from HTML with custom headers and footers with wkhtmltopdf v1.2.210-188  
+# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v1.2.210-188  
 
 This is an open-source project. Star this repository if you like it, or even donate!  Thank you so much! :)
 
