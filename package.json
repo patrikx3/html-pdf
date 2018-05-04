@@ -1,12 +1,14 @@
 {
     "name": "p3x-html-pdf",
-    "version": "1.2.223-197",
+    "version": "1.2.232-205",
     "corifeus": {
         "prefix": "p3x-",
         "publish": true,
         "type": "p3x",
         "code": "WwkHtmlTox",
-        "nodejs": "v10.0.0"
+        "nodejs": "v10.0.0",
+        "opencollective": false,
+        "reponame": "html-pdf"
     },
     "license": "MIT",
     "description": "📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf",
@@ -36,11 +38,11 @@
     },
     "homepage": "https://pages.corifeus.com/html-pdf",
     "devDependencies": {
-        "corifeus-builder": "^1.7.1350-372"
+        "corifeus-builder": "^1.7.1372-390"
     },
     "dependencies": {
         "cheerio": "^1.0.0-rc.2",
-        "corifeus-utils": "^1.2.15-358",
+        "corifeus-utils": "^1.2.32-370",
         "fs-extra": "^6.0.0",
         "progress": "^2.0.0"
     },
