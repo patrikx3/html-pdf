@@ -6,7 +6,7 @@
 
 
  
-# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v1.2.258-218  
+# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v1.2.263-221  
 
 This is an open-source project. Star this repository if you like it, or even donate!  Thank you so much! :)
 
@@ -17,12 +17,12 @@ All my domains (patrikx3.com and corifeus.com) could have errors since I am deve
 
 ### Node Version Requirement 
 ``` 
->=10.0.0 
+>=10.2.1 
 ```  
    
 ### Built on Node 
 ``` 
-v10.1.0
+v10.2.1
 ```   
    
 The ```async``` and ```await``` keywords are required.
@@ -56,7 +56,7 @@ Given of the amount of code I write, sometimes it takes to write documentation.
 
 ---
 
-[**P3X-HTML-PDF**](https://pages.corifeus.com/html-pdf) Build v1.2.258-218 
+[**P3X-HTML-PDF**](https://pages.corifeus.com/html-pdf) Build v1.2.263-221 
 
 [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software) [![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZVM4V6HVZJW6)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) 
 
