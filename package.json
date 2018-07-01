@@ -1,12 +1,12 @@
 {
     "name": "p3x-html-pdf",
-    "version": "1.2.267-223",
+    "version": "1.2.269-226",
     "corifeus": {
         "prefix": "p3x-",
         "publish": true,
         "type": "p3x",
         "code": "WwkHtmlTox",
-        "nodejs": "v10.2.1",
+        "nodejs": "v10.5.0",
         "opencollective": false,
         "reponame": "html-pdf",
         "build": true
