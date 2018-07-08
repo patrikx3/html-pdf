@@ -103,7 +103,7 @@ const generate = async (options) => {
 `;
 
             const mainsSettings = cleanDeep(options)
-            mainsSettings.settings.html = JSON.stringify(data, null, 2);
+            mainsSettings.settings.html = JSON.stringify(data, null, 4);
 
             data = template(baseHtmlFooterHeader)(mainsSettings)
             data = data.replace('// headerOrFooter //', `var headerOrFooter = ${type};`)
