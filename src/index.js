@@ -158,9 +158,9 @@ var qr = ${JSON.stringify(mainsSettings.settings.qr)};
         if (isFixed()) {
             marginTop = '0mm';
             marginBottom = '0mm';
-            addOn += ` --margin-left 0mm --margin-right 0mm`
+            addOn += ` --margin-left 0mm --margin-right 0mm --disable-smart-shrinking`
         }
-        const pageSize = isFixed() ? `--page-width ${settings.template.fixedWidth}mm --page-height ${settings.template.fixedHeight}mm` : `--page-size ${settings.template.format}`;
+        const pageSize = isFixed() ? `--page-width ${settings.template.fixedWidth + 0.5}mm --page-height ${settings.template.fixedHeight + 0.5}mm` : `--page-size ${settings.template.format}`;
         const generatePdfCommand = `${binpath} --javascript-delay ${javascriptDelay} --copies ${settings.template.copies} --margin-bottom ${marginBottom} --margin-top ${marginTop}  ${addOn}  ${debug ? '--debug-javascript' : ''} --title ${JSON.stringify(title + ' ' + new Date().toLocaleString())} --orientation ${startCase(settings.template.orientation)} ${pageSize} ${tmpHtmlPath} --header-html ${tmpHtmlPathHeader} --footer-html ${tmpHtmlPathFooter} ${tmpPdfPath}`;
 
         console.debug('generatePdfCommand', generatePdfCommand);
