@@ -27,7 +27,8 @@ const generate = async (options) => {
     if (debug) {
         console.debug = console.info;
     } else {
-        console.debug = () => {};
+        console.debug = () => {
+        };
     }
 
     let tmpHtmlPath;
@@ -48,8 +49,8 @@ const generate = async (options) => {
         let footer = {};
 
         const defaultHeightMargin = '10mm';
-        let marginTop= defaultHeightMargin ;
-        let marginBottom = defaultHeightMargin ;
+        let marginTop = defaultHeightMargin;
+        let marginBottom = defaultHeightMargin;
         $id.each((index, element) => {
             const $element = $(element)
             const $parent = $element.parent();
@@ -57,11 +58,11 @@ const generate = async (options) => {
             const id = $element.attr('id');
             if (id.startsWith('p3x-header')) {
                 header[id] = $parent.html();
-                marginTop = $element.data('height') || defaultHeightMargin ;
+                marginTop = $element.data('height') || defaultHeightMargin;
                 $element.remove();
             } else if (id.startsWith('p3x-footer')) {
                 footer[id] = $parent.html();
-                marginBottom = $element.data('height') || defaultHeightMargin ;
+                marginBottom = $element.data('height') || defaultHeightMargin;
                 $element.remove();
             }
         })
@@ -160,7 +161,7 @@ var qr = ${JSON.stringify(mainsSettings.settings.qr)};
             marginBottom = '0mm';
             addOn += ` --margin-left 0mm --margin-right 0mm --disable-smart-shrinking`
         }
-        const pageSize = isFixed() ? `--page-width ${settings.template.fixedWidth + 0.5}mm --page-height ${settings.template.fixedHeight + 0.5}mm` : `--page-size ${settings.template.format}`;
+        const pageSize = isFixed() ? `--page-width ${settings.template.fixedWidth + 1}mm --page-height ${settings.template.fixedHeight + 1}mm` : `--page-size ${settings.template.format}`;
         const generatePdfCommand = `${binpath} --javascript-delay ${javascriptDelay} --copies ${settings.template.copies} --margin-bottom ${marginBottom} --margin-top ${marginTop}  ${addOn}  ${debug ? '--debug-javascript' : ''} --title ${JSON.stringify(title + ' ' + new Date().toLocaleString())} --orientation ${startCase(settings.template.orientation)} ${pageSize} ${tmpHtmlPath} --header-html ${tmpHtmlPathHeader} --footer-html ${tmpHtmlPathFooter} ${tmpPdfPath}`;
 
         console.debug('generatePdfCommand', generatePdfCommand);

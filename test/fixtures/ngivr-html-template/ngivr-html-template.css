@@ -1,29 +1,29 @@
 .ngivr-button-row-left {
-  padding-right: 5px;
+    padding-right: 5px;
 }
 
 .ngivr-position-fixed-top-left {
-  position: fixed;
-  top: 0px;
-  left: 0px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
 }
 
 .ngivr-position-fixed-top-right {
-  position: fixed;
-  top: 0px;
-  right: 0px;
+    position: fixed;
+    top: 0px;
+    right: 0px;
 }
 
 .ngivr-position-fixed-bottom-left {
-  position: fixed;
-  bottom: 0px;
-  left: 0px;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
 }
 
 .ngivr-position-fixed-bottom-right {
-  position: fixed;
-  bottom: 0px;
-  right: 0px;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
 }
 
 /**
@@ -47,30 +47,30 @@ template
 }
 */
 body {
-  font-size: 20px;
+    font-size: 20px;
 }
 
 #pageHeader-first {
-  height: 1cm;
+    height: 1cm;
 }
 
 #pageHeader {
-  height: 1cm;
+    height: 1cm;
 }
 
 .ngivr-template-page-break {
-  height: 1px;
-  border-top-style: dotted;
-  page-break-after: always;
+    height: 1px;
+    border-top-style: dotted;
+    page-break-after: always;
 }
 
 .ngivr-html-template-error {
-  color: white;
-  background-color: red;
-  padding: 5px;
-  font-size: 15px;
+    color: white;
+    background-color: red;
+    padding: 5px;
+    font-size: 15px;
 }
 
 ngivr-html-template-include {
-  background-color: rgba(128, 128, 128, 0.5);
+    background-color: rgba(128, 128, 128, 0.5);
 }

@@ -11,7 +11,7 @@ const progress = require('progress');
 //const currentRelease = 'https://api.github.com/repos/wkhtmltopdf/wkhtmltopdf/releases/latest';
 const currentRelease = 'https://api.github.com/repos/wkhtmltopdf/wkhtmltopdf/releases/4730156';
 
-const install = async() => {
+const install = async () => {
 
     let staticInstaller;
 
@@ -76,7 +76,7 @@ const install = async() => {
             console.log(`Found GITHUB_TOKEN, using as GitHub authorization.`)
         }
 
-        const { body } = await utils.http.request({
+        const {body} = await utils.http.request({
             url: currentRelease,
             headers: headers
         });

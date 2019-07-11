@@ -4,7 +4,8 @@
     <base href=file:///home/patrikx3/Projects/patrikx3/p3x/html-pdf/test/fixtures/">
     <link rel="stylesheet" href="ngivr-html-template/ngivr-html-template.css">
 
-    <script type="text/javascript" src="file:///home/patrikx3/Projects/patrikx3/p3x/html-pdf/node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script type="text/javascript"
+            src="file:///home/patrikx3/Projects/patrikx3/p3x/html-pdf/node_modules/jquery/dist/jquery.slim.min.js"></script>
 
     <style type="text/css">
 
@@ -20,6 +21,7 @@
     </style>
     <script type="text/javascript">
         var vars = {};
+
         function subst() {
             var query_strings_from_url = document.location.search.substring(1).split('&');
             for (var query_string in query_strings_from_url) {
@@ -40,7 +42,8 @@
         }
     </script>
 </head>
-<body  onload="subst()">
-    <img src="ngivr-html-template/sygnus-logo.png"/>
+<body onload="subst()">
+<img src="ngivr-html-template/sygnus-logo.png"/>
 
-</body></html>
+</body>
+</html>
