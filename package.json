@@ -1,6 +1,6 @@
 {
     "name": "p3x-html-pdf",
-    "version": "2019.10.116",
+    "version": "2019.10.119",
     "corifeus": {
         "prefix": "p3x-",
         "publish": true,
@@ -39,11 +39,11 @@
     },
     "homepage": "https://pages.corifeus.com/html-pdf",
     "devDependencies": {
-        "corifeus-builder": "^2019.10.121"
+        "corifeus-builder": "^2019.10.127"
     },
     "dependencies": {
         "cheerio": "^1.0.0-rc.2",
-        "corifeus-utils": "^2019.10.117",
+        "corifeus-utils": "^2019.10.120",
         "fs-extra": "^8.1.0",
         "progress": "^2.0.3"
     },
