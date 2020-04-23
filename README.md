@@ -46,7 +46,7 @@ Generates PDF from HTML with custom headers and footers with wkhtmltopdf
 # First version
 Since, the basic installation, we need scripts to startup the library:
 ```bash
-yarn install p3x-html-pdf
+npm install p3x-html-pdf
 ```
 
 Soon, it will work with OSX as well.
