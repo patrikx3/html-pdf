@@ -53,15 +53,15 @@ const generate = async (options) => {
         let marginBottom = defaultHeightMargin;
         $id.each((index, element) => {
             const $element = $(element)
-            const $parent = $element.parent();
+            //const $parent = $element.parent();
 //            console.debug($parent.html());
             const id = $element.attr('id');
             if (id.startsWith('p3x-header')) {
-                header[id] = $parent.html();
+                header[id] = `<div>${$element.html()}</div>`;
                 marginTop = $element.data('height') || defaultHeightMargin;
                 $element.remove();
             } else if (id.startsWith('p3x-footer')) {
-                footer[id] = $parent.html();
+                footer[id] = `<div>${$element.html()}</div>`;
                 marginBottom = $element.data('height') || defaultHeightMargin;
                 $element.remove();
             }
@@ -88,8 +88,8 @@ const generate = async (options) => {
          */
 
 
-        $('ngivr-html-template-include .p3x-header').remove();
-        $('ngivr-html-template-include .p3x-footer').remove();
+        $('.p3x-header').remove();
+        $('.p3x-footer').remove();
         html = $.html();
 
         html = html.replace(/\${qr}/g, options.settings.qr)
@@ -98,9 +98,9 @@ const generate = async (options) => {
 
             const lodashTemplateHack = `
         item = item.replace(/\\$\{page}/g, vars.page);
-        item = item.replace(/\\$\{pages}/g, vars.pages);  
-        item = item.replace(/\\$\{qr}/g, qr);  
-         
+        item = item.replace(/\\$\{pages}/g, vars.pages);
+        item = item.replace(/\\$\{qr}/g, qr);
+
 `;
 
             const mainsSettings = cleanDeep(options)
