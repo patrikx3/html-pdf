@@ -90,6 +90,8 @@ const generate = async (options) => {
 
         $('.p3x-header').remove();
         $('.p3x-footer').remove();
+        $('ngivr-core-pdf-template-include').remove()
+        $('ngivr-html-template-include').remove()
         html = $.html();
 
         html = html.replace(/\${qr}/g, options.settings.qr)
