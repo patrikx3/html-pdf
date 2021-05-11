@@ -1,12 +1,12 @@
 {
     "name": "p3x-html-pdf",
-    "version": "2021.4.115",
+    "version": "2021.4.118",
     "corifeus": {
         "prefix": "p3x-",
         "publish": true,
         "type": "p3x",
         "code": "Venture",
-        "nodejs": "v14.16.0",
+        "nodejs": "v14.16.1",
         "opencollective": false,
         "reponame": "html-pdf",
         "build": true
@@ -39,12 +39,12 @@
     },
     "homepage": "https://corifeus.com/html-pdf",
     "devDependencies": {
-        "corifeus-builder": "^2021.4.124"
+        "corifeus-builder": "^2021.4.129"
     },
     "dependencies": {
-        "cheerio": "^1.0.0-rc.5",
-        "corifeus-utils": "^2021.4.115",
-        "fs-extra": "^9.1.0",
+        "cheerio": "^1.0.0-rc.9",
+        "corifeus-utils": "^2021.4.120",
+        "fs-extra": "^10.0.0",
         "progress": "^2.0.3"
     },
     "engines": {
