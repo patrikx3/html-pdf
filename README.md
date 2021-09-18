@@ -11,14 +11,14 @@
 
 
 
-# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v2021.10.110
+# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v2021.10.114
 
 
 
 **Bugs are evident™ - MATRIX️**
     
 
-### NodeJs LTS Version Requirement
+### Version requirement
 ```txt
 >=12.13.0
 ```
@@ -28,7 +28,6 @@
 v14.17.6
 ```
 
-Only the latest LTS variant is supported.
 
 
 
@@ -68,7 +67,7 @@ All my domains ([patrikx3.com](https://patrikx3.com) and [corifeus.com](https://
 
 ---
 
-[**P3X-HTML-PDF**](https://corifeus.com/html-pdf) Build v2021.10.110
+[**P3X-HTML-PDF**](https://corifeus.com/html-pdf) Build v2021.10.114
 
 [![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZVM4V6HVZJW6)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software)
 
