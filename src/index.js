@@ -162,6 +162,13 @@ var qr = ${JSON.stringify(mainsSettings.settings.qr)};
             marginTop = '0mm';
             marginBottom = '0mm';
             addOn += ` --margin-left 0mm --margin-right 0mm --disable-smart-shrinking`
+        } else {
+            if (settings.template.marginLeft !== null && settings.template.marginLeft !== undefined) {
+                addOn += ` --margin-left ${settings.template.marginLeft}mm `
+            }
+            if (settings.template.marginRight != null && settings.template.marginLeft !== undefined) {
+                addOn += ` --margin-right ${settings.template.marginRight}mm `
+            }
         }
         const pageSize = isFixed() ? `--page-width ${settings.template.fixedWidth + 1}mm --page-height ${settings.template.fixedHeight + 1}mm` : `--page-size ${settings.template.format}`;
         const generatePdfCommand = `${binpath} --javascript-delay ${javascriptDelay} --copies ${settings.template.copies} --margin-bottom ${marginBottom} --margin-top ${marginTop}  ${addOn}  ${debug ? '--debug-javascript' : ''} --title ${JSON.stringify(title + ' ' + new Date().toLocaleString())} --orientation ${startCase(settings.template.orientation)} ${pageSize} ${tmpHtmlPath} --header-html ${tmpHtmlPathHeader} --footer-html ${tmpHtmlPathFooter} ${tmpPdfPath}`;
