@@ -1,11 +1,11 @@
 
-@license p3x-html-pdf v2022.4.129
+@license p3x-html-pdf v2023.10.107
   
 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf
 
 https://corifeus.com/html-pdf
 
-Copyright (c) 2022 Patrik Laszlo / P3X / Corifeus and contributors.
+Copyright (c) 2023 Patrik Laszlo / P3X / Corifeus and contributors.
 
 MIT License
 
