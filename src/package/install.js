@@ -149,5 +149,6 @@ const install = async () => {
     */
 
     console.log(`Install done`);
+    process.exit()
 }
-install();
+install()
