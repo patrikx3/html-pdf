@@ -11,7 +11,11 @@ const os = require('os');
 const isWin = os.platform() === 'win32';
 const binPathAddon = isWin ? '' : 'wkhtmltox/';
 
-const binpath = path.resolve(`${__dirname}/../release/${binPathAddon}bin/wkhtmltopdf`);
+let binpath = path.resolve(`${__dirname}/../release/${binPathAddon}bin/wkhtmltopdf`);
+// if we are in arm64, change the binpath
+if (os.arch() === 'arm64') {
+    binpath = '/usr/local/bin/wkhtmltopdf-arm64'
+}
 
 const generate = async (options) => {
     const {settings, saveFile, base, debug, title} = options;
