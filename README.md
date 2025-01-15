@@ -6,7 +6,7 @@
 
 
 
-# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v2025.4.119
+# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v2025.4.123
 
 
   
@@ -204,9 +204,64 @@ Check out an example output PDF:
 
 ---
 
-## License
+# Puppeteer vs. p3x-html-pdf: Resource Usage and Features Comparison
 
-This project is licensed under the MIT License.
+When deciding between **Puppeteer** and **p3x-html-pdf**, it's essential to understand their differences in resource usage and capabilities.
+
+## Technology Difference
+
+- **p3x-html-pdf** is built on **wkhtmltopdf**, which uses the WebKit rendering engine. It's lightweight and optimized for HTML-to-PDF tasks.
+- **Puppeteer** launches a full **Chrome/Chromium** instance, consuming more CPU and memory, even in headless mode.
+
+## Resource Usage Comparison
+
+| Feature                | p3x-html-pdf (wkhtmltopdf)                  | Puppeteer (Chrome/Chromium)              |
+|------------------------|---------------------------------------------|------------------------------------------|
+| **Memory Usage**       | Low                                         | High                                     |
+| **CPU Usage**          | Low                                         | High                                     |
+| **Startup Time**       | Fast                                        | Slower due to browser launch            |
+| **Dynamic Content**    | Limited support for JavaScript              | Full support for JavaScript              |
+| **Rendering Accuracy** | Basic CSS and HTML support                  | Pixel-perfect rendering with modern web standards |
+| **Flexibility**        | Limited customization                      | Highly customizable (headers, footers, scripts) |
+| **Scalability**        | Suitable for lightweight tasks and servers | Better for advanced use cases and large-scale rendering |
+| **File Size**          | Smaller binary for wkhtmltopdf dependency  | Puppeteer requires downloading Chromium (~100MB) |
+
+## Trade-offs
+
+### p3x-html-pdf (wkhtmltopdf)
+- **Pros:**
+  - Lightweight and uses fewer resources.
+  - Faster startup time.
+  - Ideal for static HTML content with minimal JavaScript or CSS.
+
+- **Cons:**
+  - Limited support for modern web standards and advanced JavaScript.
+  - Basic rendering capabilities.
+
+### Puppeteer
+- **Pros:**
+  - Full support for dynamic content, advanced JavaScript, and modern web standards.
+  - Highly customizable headers, footers, and PDF options.
+  - Pixel-perfect rendering accuracy.
+
+- **Cons:**
+  - Consumes more CPU and memory.
+  - Slower startup time due to launching a full Chrome/Chromium instance.
+
+## When to Use Each
+
+### Use **p3x-html-pdf (wkhtmltopdf)**:
+- When your content is **static** or doesn’t rely on modern web technologies.
+- When resource efficiency is a priority (e.g., on resource-constrained servers).
+
+### Use **Puppeteer**:
+- When your content is **dynamic** or relies heavily on JavaScript and CSS.
+- When rendering accuracy, modern web technology support, or customization is critical.
+
+## Conclusion
+
+- **p3x-html-pdf** (wkhtmltopdf) is a better fit for lightweight tasks with simple requirements.
+- **Puppeteer** excels in advanced and dynamic use cases but comes with higher resource costs.
 
 ---
 
@@ -241,13 +296,8 @@ If you appreciate our work, consider ⭐ starring this repository or 💰 making
 
 ---
 
-### 🖥️ Server Availability  
-Our server may occasionally be down, but please be patient. Typically, it will be back online within 15-30 minutes. We appreciate your understanding.  
-
----
-
 ### 🌍 About My Domains  
-All my domains, including [patrikx3.com](https://patrikx3.com), [corifeus.hu](https://corifeus.hu), and [corifeus.com](https://corifeus.com), are developed in my spare time. While you may encounter minor errors, the sites are generally stable and fully functional.  
+All my domains, including [patrikx3.com](https://patrikx3.com), [corifeus.eu](https://corifeus.eu), and [corifeus.com](https://corifeus.com), are developed in my spare time. While you may encounter minor errors, the sites are generally stable and fully functional.  
 
 ---
 
@@ -262,7 +312,7 @@ All my domains, including [patrikx3.com](https://patrikx3.com), [corifeus.hu](ht
 ---
 
 
-[**P3X-HTML-PDF**](https://corifeus.com/html-pdf) Build v2025.4.119
+[**P3X-HTML-PDF**](https://corifeus.com/html-pdf) Build v2025.4.123
 
  [![NPM](https://img.shields.io/npm/v/p3x-html-pdf.svg)](https://www.npmjs.com/package/p3x-html-pdf)  [![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZVM4V6HVZJW6)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software)
 
