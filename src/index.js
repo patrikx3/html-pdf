@@ -21,6 +21,8 @@ const generate = async (options) => {
     const {settings, saveFile, base, debug, title} = options;
     let {javascriptDelay} = options;
 
+    //console.log('options', options)
+
     const isFixed = () => {
         return settings.template.fixedWidth > 0 && settings.template.fixedHeight
     }
@@ -42,6 +44,10 @@ const generate = async (options) => {
     try {
         const baseHtml = (await fs.readFile(`${__dirname}/base.html`)).toString();
         const baseHtmlFooterHeader = (await fs.readFile(`${__dirname}/header-footer.html`)).toString();
+
+        options.base = options.base || 'file://' + __dirname;
+        options.css = options.css || (await fs.readFile(`${__dirname}/ngivr-html-template.css`)).toString();
+        options.jquery = options.jquery || (await fs.readFile(`${__dirname}/jquery-1.12.4.min.js`)).toString();
 
         let html = template(baseHtml)(options)
 
@@ -143,9 +149,11 @@ var qr = ${JSON.stringify(mainsSettings.settings.qr)};
         tmpHtmlPathHeader = await utils.fs.ensureTempFile(header, 'html')
         tmpHtmlPathFooter = await utils.fs.ensureTempFile(footer, 'html')
         tmpPdfPath = await utils.fs.tempFileName('pdf');
-//        console.debug('footer', footer)
-//        console.debug('tmpHtmlPath', tmpHtmlPath);
-//        console.debug('tmpPdfPath', tmpPdfPath);
+        //console.debug('header', footer)
+        //console.debug('footer', footer)
+        //console.debug('html', footer)
+       // console.debug('tmpHtmlPath', tmpHtmlPath);
+       // console.debug('tmpPdfPath', tmpPdfPath);
 
 // --header-html ${tmpHtmlPath}  --footer-html ${tmpHtmlPath}
         /*

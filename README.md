@@ -6,7 +6,7 @@
 
 
 
-# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v2025.4.112
+# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v2025.4.114
 
 
   
@@ -35,19 +35,143 @@ v22.13.0
 [//]: #@corifeus-header:end
 
 
-Generates PDF from HTML with custom headers and footers with wkhtmltopdf
 
-# First version
-Since, the basic installation, we need scripts to startup the library:
+
+[![NPM Version](https://img.shields.io/npm/v/p3x-html-pdf)](https://www.npmjs.com/package/p3x-html-pdf)
+[![License](https://img.shields.io/npm/l/p3x-html-pdf)](https://github.com/patrikx3/html-pdf/blob/master/LICENSE)
+[![Downloads](https://img.shields.io/npm/dw/p3x-html-pdf)](https://www.npmjs.com/package/p3x-html-pdf)
+
+## ✨ Overview
+
+`p3x-html-pdf` is a Node.js package that generates PDFs from HTML with custom headers and footers using `wkhtmltopdf`. It is a robust tool for creating professional-grade PDFs with features like:
+
+- 📜 **Dynamic Headers and Footers**: Add placeholders for page numbers, dates, and more.
+- 🛠️ **Customizable Layouts**: Configure margins, orientation, and paper size.
+- ⚡ **Async/Await Support**: Modern JavaScript compatibility for efficient workflows.
+- 🔄 **Dynamic Content**: Render data-driven tables and content dynamically.
+
+## 🚀 Installation
+
+Install via Yarn:
+
 ```bash
-npm install p3x-html-pdf
+yarn add p3x-html-pdf
 ```
 
-Soon, it will work with OSX as well.
+Import in your project:
 
-It is a ```microservice``` that I created for my job with Sygnus.
+```javascript
+const { generate } = require('p3x-html-pdf');
+```
 
-Given of the amount of code I write, sometimes it takes to write documentation.
+## 🛠️ Features
+
+- 📜 **Custom Headers and Footers**
+- 📏 **Flexible Page Settings**
+- ⚡ **Async/Await Support**
+- 📊 **Dynamic Tables and Content**
+
+## 📖 Usage Example
+
+```javascript
+const { generate } = require('p3x-html-pdf');
+const path = require('path');
+
+(async () => {
+    const options = {
+        settings: {
+            save: true,
+            template: {
+                format: 'A4',
+                orientation: 'portrait',
+                marginLeft: 10,
+                marginRight: 10,
+            },
+            html: `
+            <div id="p3x-header" data-height="20mm">
+                <h1>Header Content</h1>
+            </div>
+            <div id="p3x-footer" data-height="15mm">
+                <p>Page ${page} of ${pages}</p>
+            </div>
+            <div>
+                <h2>Content</h2>
+                <p>This is a test PDF document.</p>
+                <table width="100%" align="left" border="1">
+                    <tr>
+                        <th align="left">Header 1</th>
+                        <th align="left">Header 2</th>
+                        <th align="left">Header 3</th>
+                    </tr>
+                    <tr>
+                        <td>Data 1</td>
+                        <td>Data 2</td>
+                        <td>Data 3</td>
+                    </tr>
+                    <tr>
+                        <td>Data 4</td>
+                        <td>Data 5</td>
+                        <td>Data 6</td>
+                    </tr>
+                </table>
+            </div>
+            `,
+        },
+        title: 'Sample PDF',
+        saveFile: path.resolve(__dirname, 'output.pdf'),
+    };
+
+    try {
+        await generate(options);
+        console.log('✅ PDF generated successfully!');
+    } catch (err) {
+        console.error('❌ Error generating PDF:', err);
+    }
+})();
+```
+
+## 🔧 Configuration
+
+### Options
+
+- **Settings**
+  - `save`: If false, it returns as a buffer.
+  - `template.format`: Page size, e.g., `A4`, `Letter`.
+  - `template.orientation`: Page orientation (`portrait` or `landscape`).
+  - `template.marginLeft`, `template.marginRight`: Margins in mm.
+  - `html`: HTML content with placeholders.
+- **title**: PDF document title.
+- **saveFile**: Path for saving the PDF.
+
+### Placeholders
+
+- `${page}`: Current page.
+- `${pages}`: Total pages.
+- `${date}`: Current date.
+- `${isodate}`: ISO date format.
+- `${time}`: Current time.
+
+## 📊 Advanced Features
+
+- **Debugging**: Use `debug: true` to enable detailed logs.
+- **Header/Footer Templates**: Define rich HTML templates for headers/footers.
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to submit issues or pull requests on [GitHub](https://github.com/patrikx3/html-pdf).
+
+## 📜 License
+
+This project is licensed under the [MIT License](https://github.com/patrikx3/html-pdf/blob/master/LICENSE).
+
+---
+
+For detailed documentation, visit the [npm page](https://www.npmjs.com/package/p3x-html-pdf).
+
+---
+
+The ARM version is ready, but not put into downloading the binary, but I will place it somehwere, if there is request.
+
 
 [//]: #@corifeus-footer
 
@@ -99,7 +223,7 @@ All my domains, including [patrikx3.com](https://patrikx3.com), [corifeus.hu](ht
 ---
 
 
-[**P3X-HTML-PDF**](https://corifeus.com/html-pdf) Build v2025.4.112
+[**P3X-HTML-PDF**](https://corifeus.com/html-pdf) Build v2025.4.114
 
  [![NPM](https://img.shields.io/npm/v/p3x-html-pdf.svg)](https://www.npmjs.com/package/p3x-html-pdf)  [![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZVM4V6HVZJW6)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software)
 
