@@ -6,7 +6,7 @@
 
 
 
-# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v2025.4.117
+# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v2025.4.118
 
 
   
@@ -35,12 +35,14 @@ v22.13.0
 [//]: #@corifeus-header:end
 
 
-`p3x-html-pdf` is a Node.js package that generates PDFs from HTML with custom headers and footers using `wkhtmltopdf`. It is a robust tool for creating professional-grade PDFs with features like:
+**p3x-html-pdf** is a Node.js package that generates PDFs from HTML with custom headers and footers using `wkhtmltopdf`. It is a robust tool for creating professional-grade PDFs with features like:
 
 - 📜 **Dynamic Headers and Footers**: Add placeholders for page numbers, dates, and more.
 - 🛠️ **Customizable Layouts**: Configure margins, orientation, and paper size.
 - ⚡ **Async/Await Support**: Modern JavaScript compatibility for efficient workflows.
 - 🔄 **Dynamic Content**: Render data-driven tables and content dynamically.
+
+---
 
 ## 🚀 Installation
 
@@ -50,18 +52,28 @@ Install via Yarn:
 yarn add p3x-html-pdf
 ```
 
+Or install via npm:
+
+```bash
+npm install p3x-html-pdf
+```
+
 Import in your project:
 
 ```javascript
 const { generate } = require('p3x-html-pdf');
 ```
 
+---
+
 ## 🛠️ Features
 
-- 📜 **Custom Headers and Footers**
-- 📏 **Flexible Page Settings**
-- ⚡ **Async/Await Support**
-- 📊 **Dynamic Tables and Content**
+- 📜 **Custom Headers and Footers**: Create professional headers and footers with dynamic placeholders.
+- 📏 **Flexible Page Settings**: Set paper size, orientation, margins, and more.
+- ⚡ **Async/Await Support**: Fully compatible with modern JavaScript workflows.
+- 📊 **Dynamic Tables and Content**: Generate tables and other dynamic HTML content easily.
+
+---
 
 ## 📖 Usage Example
 
@@ -116,11 +128,15 @@ const path = require('path');
     try {
         await generate(options);
         console.log('✅ PDF generated successfully!');
+        // or options.save = false
+        const buffer = await generate(options);
     } catch (err) {
         console.error('❌ Error generating PDF:', err);
     }
 })();
 ```
+
+---
 
 ## 🔧 Configuration
 
@@ -131,11 +147,19 @@ const path = require('path');
   - `template.format`: Page size, e.g., `A4`, `Letter`.
   - `template.orientation`: Page orientation (`portrait` or `landscape`).
   - `template.marginLeft`, `template.marginRight`: Margins in mm.
+  - `template.copies`: Copies to generate.
+  - `template.fixedWidth` and `template.fixedHeight`: If above zero, generates in millimeters.
   - `html`: HTML content with placeholders.
 - **title**: PDF document title.
 - **saveFile**: Path for saving the PDF.
 
-### Placeholders
+For more options, check the official [wkhtmltopdf usage guide](https://wkhtmltopdf.org/usage/wkhtmltopdf.txt).
+
+---
+
+## 🌟 Placeholders
+
+You can use placeholders in your HTML for dynamic data:
 
 - `${page}`: Current page.
 - `${pages}`: Total pages.
@@ -143,30 +167,50 @@ const path = require('path');
 - `${isodate}`: ISO date format.
 - `${time}`: Current time.
 
+Example:
+
+```html
+<div id="p3x-footer" data-height="15mm">
+  <p>Page ${page} of ${pages} - Generated on ${date}</p>
+</div>
+```
+
+---
+
 ## 📊 Advanced Features
 
 - **Debugging**: Use `debug: true` to enable detailed logs.
-- **Header/Footer Templates**: Define rich HTML templates for headers/footers.
-
-## 🤝 Contributing
-
-Contributions are welcome! Feel free to submit issues or pull requests on [GitHub](https://github.com/patrikx3/html-pdf).
-
-## 📜 License
-
-This project is licensed under the [MIT License](https://github.com/patrikx3/html-pdf/blob/master/LICENSE).
+- **Header/Footer Templates**: Create rich HTML templates for headers/footers.
+- **Dynamic Content**: Inject dynamic tables, invoices, or other content into the PDF.
 
 ---
 
-For detailed documentation, visit the [npm page](https://www.npmjs.com/package/p3x-html-pdf).
+## 🌍 Architecture
+
+`p3x-html-pdf` works seamlessly on Linux and Windows.
+
+### ARM64 Support
+
+If `os.arch() === 'arm64'`, the package automatically sets the `wkhtmltopdf` path to `/usr/local/bin/wkhtmltopdf-arm64`.  
+Download the binary manually and place it there:  
+[wkhtmltopdf-arm64 binary](https://github.com/houseoftech/wkhtmltopdf-arm64/raw/refs/heads/master/bin/wkhtmltopdf-arm64).
 
 ---
 
-## ARM64 Support  
-If os.arch() === 'arm64', it automatically sets the wkhtmltopdf path to `/usr/local/bin/wkhtmltopdf-arm64`.  
-[You can download and place at that place](https://github.com/houseoftech/wkhtmltopdf-arm64/raw/refs/heads/master/bin/wkhtmltopdf-arm64)
+## 🖼️ Example Output
 
+Check out an example output PDF:  
+[Example PDF](https://cdn.corifeus.com/git/html-pdf/test-output.pdf).
 
+---
+
+## License
+
+This project is licensed under the MIT License.
+
+---
+
+**Happy PDF Generating!** 🎉
 
 [//]: #@corifeus-footer
 
@@ -218,7 +262,7 @@ All my domains, including [patrikx3.com](https://patrikx3.com), [corifeus.hu](ht
 ---
 
 
-[**P3X-HTML-PDF**](https://corifeus.com/html-pdf) Build v2025.4.117
+[**P3X-HTML-PDF**](https://corifeus.com/html-pdf) Build v2025.4.118
 
  [![NPM](https://img.shields.io/npm/v/p3x-html-pdf.svg)](https://www.npmjs.com/package/p3x-html-pdf)  [![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZVM4V6HVZJW6)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software)
 
