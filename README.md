@@ -6,7 +6,7 @@
 
 
 
-# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v2025.4.123
+# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v2025.4.124
 
 
   
@@ -222,7 +222,7 @@ When deciding between **Puppeteer** and **p3x-html-pdf**, it's essential to unde
 | **Startup Time**       | Fast                                        | Slower due to browser launch            |
 | **Dynamic Content**    | Limited support for JavaScript              | Full support for JavaScript              |
 | **Rendering Accuracy** | Basic CSS and HTML support                  | Pixel-perfect rendering with modern web standards |
-| **Flexibility**        | Limited customization                      | Highly customizable (headers, footers, scripts) |
+| **Flexibility**        | Headers, footers, scripts (older JS versions) | Highly customizable (headers, footers, scripts) |
 | **Scalability**        | Suitable for lightweight tasks and servers | Better for advanced use cases and large-scale rendering |
 | **File Size**          | Smaller binary for wkhtmltopdf dependency  | Puppeteer requires downloading Chromium (~100MB) |
 
@@ -312,7 +312,7 @@ All my domains, including [patrikx3.com](https://patrikx3.com), [corifeus.eu](ht
 ---
 
 
-[**P3X-HTML-PDF**](https://corifeus.com/html-pdf) Build v2025.4.123
+[**P3X-HTML-PDF**](https://corifeus.com/html-pdf) Build v2025.4.124
 
  [![NPM](https://img.shields.io/npm/v/p3x-html-pdf.svg)](https://www.npmjs.com/package/p3x-html-pdf)  [![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZVM4V6HVZJW6)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software)
 
