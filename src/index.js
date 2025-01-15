@@ -46,7 +46,7 @@ const generate = async (options) => {
         const baseHtmlFooterHeader = (await fs.readFile(`${__dirname}/header-footer.html`)).toString();
 
         options.base = options.base || 'file://' + __dirname;
-        options.css = options.css || (await fs.readFile(`${__dirname}/ngivr-html-template.css`)).toString();
+        options.css = options.css || (await fs.readFile(`${__dirname}/ng-html-template.css`)).toString();
         options.jquery = options.jquery || (await fs.readFile(`${__dirname}/jquery-1.12.4.min.js`)).toString();
 
         let html = template(baseHtml)(options)
@@ -100,8 +100,8 @@ const generate = async (options) => {
 
         $('.p3x-header').remove();
         $('.p3x-footer').remove();
-        //$('ngivr-core-pdf-template-include').remove()
-        //$('ngivr-html-template-include').remove()
+        //$('ng-core-pdf-template-include').remove()
+        //$('ng-html-template-include').remove()
         html = $.html();
 
         html = html.replace(/\${qr}/g, options.settings.qr)

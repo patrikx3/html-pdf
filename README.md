@@ -6,7 +6,7 @@
 
 
 
-# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v2025.4.114
+# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v2025.4.115
 
 
   
@@ -170,7 +170,9 @@ For detailed documentation, visit the [npm page](https://www.npmjs.com/package/p
 
 ---
 
-The ARM version is ready, but not put into downloading the binary, but I will place it somehwere, if there is request.
+ARM64 Support: If os.arch() === 'arm64', it automatically sets the wkhtmltopdf path to /usr/local/bin/wkhtmltopdf-arm64.  
+You can download and place it at:  
+https://github.com/houseoftech/wkhtmltopdf-arm64/raw/refs/heads/master/bin/wkhtmltopdf-arm64  
 
 
 [//]: #@corifeus-footer
@@ -223,7 +225,7 @@ All my domains, including [patrikx3.com](https://patrikx3.com), [corifeus.hu](ht
 ---
 
 
-[**P3X-HTML-PDF**](https://corifeus.com/html-pdf) Build v2025.4.114
+[**P3X-HTML-PDF**](https://corifeus.com/html-pdf) Build v2025.4.115
 
  [![NPM](https://img.shields.io/npm/v/p3x-html-pdf.svg)](https://www.npmjs.com/package/p3x-html-pdf)  [![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZVM4V6HVZJW6)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software)
 

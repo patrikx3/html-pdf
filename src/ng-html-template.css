@@ -1,27 +1,27 @@
 @charset "UTF-8";
-.ngivr-button-row-left {
+.ng-button-row-left {
   padding-right: 5px;
 }
 
-.ngivr-position-fixed-top-left {
+.ng-position-fixed-top-left {
   position: fixed;
   top: 0px;
   left: 0px;
 }
 
-.ngivr-position-fixed-top-right {
+.ng-position-fixed-top-right {
   position: fixed;
   top: 0px;
   right: 0px;
 }
 
-.ngivr-position-fixed-bottom-left {
+.ng-position-fixed-bottom-left {
   position: fixed;
   bottom: 0px;
   left: 0px;
 }
 
-.ngivr-position-fixed-bottom-right {
+.ng-position-fixed-bottom-right {
   position: fixed;
   bottom: 0px;
   right: 0px;
@@ -63,24 +63,24 @@ table {
   border-collapse: collapse;
 }
 
-.ngivr-size-a5 {
+.ng-size-a5 {
   font-size: 14px;
 }
 
-.ngivr-highlight-gray {
+.ng-highlight-gray {
   background-color: rgba(128, 128, 128, 0.5);
 }
 
 
-.divider, .ngivr-divider {
+.divider, .ng-divider {
   height: 20px;
 }
 
-.border-horizontal, .ngivr-border-horizontal {
+.border-horizontal, .ng-border-horizontal {
   border-top: 1px solid #000000;
 }
 
-.ngivr-border-top-bottom {
+.ng-border-top-bottom {
   border-top: 1px solid rgba(0, 0, 0, 0.5);
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 }
@@ -89,7 +89,7 @@ table {
   border: 1px solid #000000;
 }
 
-.ngivr-template-page-break {
+.ng-template-page-break {
   height: 1px;
   border-top-style: dotted;
   page-break-after: always;
@@ -97,7 +97,7 @@ table {
 
 
 
-.ngivr-header {
+.ng-header {
   font-weight: bold;
 }
 
