@@ -6,7 +6,7 @@
 
 
 
-# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v2025.4.132
+# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v2025.4.133
 
 
   
@@ -266,16 +266,16 @@ For instance, the following layout works seamlessly:
    ```
 ---
 
-# Puppeteer vs. p3x-html-pdf: Resource Usage and Features Comparison
+## Puppeteer vs. p3x-html-pdf: Resource Usage and Features Comparison
 
 When deciding between **Puppeteer** and **p3x-html-pdf**, it's essential to understand their differences in resource usage and capabilities.
 
-## Technology Difference
+### Technology Difference
 
 - **p3x-html-pdf** is built on **wkhtmltopdf**, which uses the WebKit rendering engine. It's lightweight and optimized for HTML-to-PDF tasks.
 - **Puppeteer** launches a full **Chrome/Chromium** instance, consuming more CPU and memory, even in headless mode.
 
-## Resource Usage Comparison
+### Resource Usage Comparison
 
 | Feature                | p3x-html-pdf (wkhtmltopdf)                  | Puppeteer (Chrome/Chromium)              |
 |------------------------|---------------------------------------------|------------------------------------------|
@@ -288,9 +288,9 @@ When deciding between **Puppeteer** and **p3x-html-pdf**, it's essential to unde
 | **Scalability**        | Suitable for lightweight tasks and servers | Better for advanced use cases and large-scale rendering |
 | **File Size**          | Smaller binary for wkhtmltopdf dependency  | Puppeteer requires downloading Chromium (~100MB) |
 
-## Trade-offs
+### Trade-offs
 
-### p3x-html-pdf (wkhtmltopdf)
+#### p3x-html-pdf (wkhtmltopdf)
 - **Pros:**
   - Lightweight and uses fewer resources.
   - Faster startup time.
@@ -300,7 +300,7 @@ When deciding between **Puppeteer** and **p3x-html-pdf**, it's essential to unde
   - Limited support for modern web standards and advanced JavaScript.
   - Basic rendering capabilities.
 
-### Puppeteer
+#### Puppeteer
 - **Pros:**
   - Full support for dynamic content, advanced JavaScript, and modern web standards.
   - Highly customizable headers, footers, and PDF options.
@@ -310,17 +310,17 @@ When deciding between **Puppeteer** and **p3x-html-pdf**, it's essential to unde
   - Consumes more CPU and memory.
   - Slower startup time due to launching a full Chrome/Chromium instance.
 
-## When to Use Each
+### When to Use Each
 
-### Use **p3x-html-pdf (wkhtmltopdf)**:
+#### Use p3x-html-pdf (wkhtmltopdf):
 - When your content is **static** or doesn’t rely on modern web technologies.
 - When resource efficiency is a priority (e.g., on resource-constrained servers).
 
-### Use **Puppeteer**:
+#### Use Puppeteer:
 - When your content is **dynamic** or relies heavily on JavaScript and CSS.
 - When rendering accuracy, modern web technology support, or customization is critical.
 
-## Conclusion
+### Conclusion
 
 - **p3x-html-pdf** (wkhtmltopdf) is a better fit for lightweight tasks with simple requirements.
 - **Puppeteer** excels in advanced and dynamic use cases but comes with higher resource costs.
@@ -374,7 +374,7 @@ All my domains, including [patrikx3.com](https://patrikx3.com), [corifeus.eu](ht
 ---
 
 
-[**P3X-HTML-PDF**](https://corifeus.com/html-pdf) Build v2025.4.132
+[**P3X-HTML-PDF**](https://corifeus.com/html-pdf) Build v2025.4.133
 
  [![NPM](https://img.shields.io/npm/v/p3x-html-pdf.svg)](https://www.npmjs.com/package/p3x-html-pdf)  [![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZVM4V6HVZJW6)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software)
 

@@ -4,3 +4,4 @@
 *.log
 /.github
 /.vscode
+/release
