@@ -6,7 +6,7 @@
 
 
 
-# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v2025.4.135
+# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v2025.4.136
 
 
   
@@ -153,8 +153,8 @@ const path = require('path');
 - **title**: PDF document title.
 - **saveFile**: Path for saving the PDF.
 - **base** The HTML base href is other then current directory, it can be online as well.
-- **css**: Customize the CSS for serving, by default it is in `src/ng-html-template.css`
-- **jquery**: The latest that works with webkit is jQuery v1.12.4
+- **css**: Customize the CSS for serving, by default it is in `src/html-template.css`
+- **jquery**: The latest that works with webkit is jQuery v1.12.4 is required, you can extend with more functions, the default is in `src/jquery-1.12.4.min.js`
 - **javascriptDelay**: The delay before the PDF is generated as default is 1000 ms.
 
 For more options, check the official [wkhtmltopdf usage guide](https://wkhtmltopdf.org/usage/wkhtmltopdf.txt).  
@@ -374,7 +374,7 @@ All my domains, including [patrikx3.com](https://patrikx3.com), [corifeus.eu](ht
 ---
 
 
-[**P3X-HTML-PDF**](https://corifeus.com/html-pdf) Build v2025.4.135
+[**P3X-HTML-PDF**](https://corifeus.com/html-pdf) Build v2025.4.136
 
  [![NPM](https://img.shields.io/npm/v/p3x-html-pdf.svg)](https://www.npmjs.com/package/p3x-html-pdf)  [![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZVM4V6HVZJW6)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software)
 
