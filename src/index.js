@@ -46,7 +46,7 @@ const generate = async (options) => {
         const baseHtmlFooterHeader = (await fs.readFile(`${__dirname}/header-footer.html`)).toString();
 
         options.base = options.base || 'file://' + __dirname;
-        options.css = options.css || (await fs.readFile(`${__dirname}/ng-html-template.css`)).toString();
+        options.css = options.css || (await fs.readFile(`${__dirname}/html-template.css`)).toString();
         options.jquery = options.jquery || (await fs.readFile(`${__dirname}/jquery-1.12.4.min.js`)).toString();
 
         let html = template(baseHtml)(options)
