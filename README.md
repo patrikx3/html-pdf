@@ -6,7 +6,7 @@
 
 
 
-# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v2025.4.130
+# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v2025.4.131
 
 
   
@@ -159,7 +159,7 @@ const path = require('path');
 
 For more options, check the official [wkhtmltopdf usage guide](https://wkhtmltopdf.org/usage/wkhtmltopdf.txt).  
   
-Unfortunately the version latest HTTS is not working, so it is better to use inline images or using HTTP as that is dated but with HTTP in local filesystem is perfect.
+Unfortunately the version latest HTTPS TLS 1.3 is not working, so it is better to use inline filesystem images or using HTTP as that is dated but still works.
 
 ---
 
@@ -177,6 +177,8 @@ Example:
   <p>Page ${page} of ${pages}</p>
 </div>
 ```
+
+The `p3x-footer` and `p3x-header` should not have any styles other than `id` and `data-height`.
 
 ---
 
@@ -229,47 +231,31 @@ For instance, the following layout works seamlessly:
 </div>
 ```
 
----
 
-## Node.js Test Example
 
-The `node ./test/test.js` script demonstrates how to generate the example PDF:
+## Steps to Clone and Run `test/test.js`
 
-```javascript
-const { generate } = require('../src/index');
-const path = require('path');
-const fs = require('fs');
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/patrikx3/html-pdf.git
+   cd html-pdf
+   ```
 
-(async () => {
-    try {
-        const outputPath = path.resolve(__dirname, '..', 'test-output.pdf');
-        if (fs.existsSync(outputPath)) {
-            fs.unlinkSync(outputPath);
-        }
+2. **Install Dependencies**:
+   Using Yarn:
+   ```bash
+   yarn install
+   ```
 
-        const options = {
-            settings: {
-                save: true,
-                template: {
-                    format: 'A4',
-                    orientation: 'portrait',
-                    marginLeft: 10,
-                    marginRight: 10,
-                },
-                html: '<h1>Hello PDF</h1>',
-            },
-            title: 'Test PDF',
-            saveFile: outputPath,
-        };
+   Or, using NPM:
+   ```bash
+   npm install
+   ```
 
-        await generate(options);
-        console.log('PDF generated!');
-    } catch (error) {
-        console.error('Error:', error);
-    }
-})();
-```
-
+3. **Run the Test Script**:
+   ```bash
+   node ./test/test.js
+   ```
 ---
 
 # Puppeteer vs. p3x-html-pdf: Resource Usage and Features Comparison
@@ -380,7 +366,7 @@ All my domains, including [patrikx3.com](https://patrikx3.com), [corifeus.eu](ht
 ---
 
 
-[**P3X-HTML-PDF**](https://corifeus.com/html-pdf) Build v2025.4.130
+[**P3X-HTML-PDF**](https://corifeus.com/html-pdf) Build v2025.4.131
 
  [![NPM](https://img.shields.io/npm/v/p3x-html-pdf.svg)](https://www.npmjs.com/package/p3x-html-pdf)  [![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZVM4V6HVZJW6)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software)
 
