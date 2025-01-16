@@ -6,7 +6,7 @@ const fs = require('fs');
 (async () => {
     try {
         // Delete the output file if it already exists
-        const outputPath = path.resolve(__dirname, '..', 'assets', 'test-output.pdf');
+        const outputPath = path.resolve(__dirname, '..', 'assets', 'p3x-html-pdf-output.pdf');
         if (fs.existsSync(outputPath)) {
             fs.unlinkSync(outputPath);
         }

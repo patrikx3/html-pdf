@@ -6,7 +6,7 @@
 
 
 
-# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v2025.4.127
+# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v2025.4.128
 
 
   
@@ -203,9 +203,9 @@ Download the binary manually and place it there:
 ## 🖼️ Example Output
 
 Check out an example output PDF:  
-[Example PDF](https://cdn.corifeus.com/git/html-pdf/assets/test-output.pdf).
+[Example PDF](https://cdn.corifeus.com/git/html-pdf/assets/p3x-html-pdf-output.pdf).
   
-![Example Output](https://cdn.corifeus.com/git/html-pdf/assets/test-output.png)  
+![Example Output](https://cdn.corifeus.com/git/html-pdf/assets/p3x-html-pdf-output.png)  
   
 ---
 
@@ -380,7 +380,7 @@ All my domains, including [patrikx3.com](https://patrikx3.com), [corifeus.eu](ht
 ---
 
 
-[**P3X-HTML-PDF**](https://corifeus.com/html-pdf) Build v2025.4.127
+[**P3X-HTML-PDF**](https://corifeus.com/html-pdf) Build v2025.4.128
 
  [![NPM](https://img.shields.io/npm/v/p3x-html-pdf.svg)](https://www.npmjs.com/package/p3x-html-pdf)  [![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZVM4V6HVZJW6)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software)
 
