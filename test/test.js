@@ -6,7 +6,7 @@ const fs = require('fs');
 (async () => {
     try {
         // Delete the output file if it already exists
-        const outputPath = path.resolve(__dirname, '..', 'assets', 'p3x-html-pdf-output.pdf');
+        const outputPath = path.resolve(__dirname, '..', 'assets', 'p3x-html-pdf-example.pdf');
         if (fs.existsSync(outputPath)) {
             fs.unlinkSync(outputPath);
         }
@@ -83,7 +83,7 @@ const fs = require('fs');
                         <li>Accepted payment methods include credit card, bank transfer, and PayPal.</li>
                         <li>Please ensure that all transactions reference the invoice number provided above.</li>
                     </ul>
-                    <p style="font-size: 14px; color: #555;">If you have any questions, feel free to contact our support team at <a href="mailto:support@p3x.com">support@p3x.com</a>.</p>
+                    <p style="font-size: 14px; color: #555;">If you have any questions, feel free to contact our support team at <a href="mailto:support@corifeus.com">support@corifeus.com</a>.</p>
                 </div>
                 <div class="ng-template-page-break"></div>
                 <div>
