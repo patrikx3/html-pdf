@@ -1,7 +1,6 @@
 /assets
 /node_modules
 /Gruntfile.js
-/*.lock
 *.log
 /.github
 /.vscode
