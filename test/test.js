@@ -5,11 +5,12 @@ const fs = require('fs');
 
 (async () => {
     try {
-        
-        if (fs.existsSync(path.resolve(__dirname, '..', 'test-output.pdf'))) {
-            fs.unlinkSync(path.resolve(__dirname, '..', 'test-output.pdf'));
+        // Delete the output file if it already exists
+        const outputPath = path.resolve(__dirname, '..', 'assets', 'test-output.pdf');
+        if (fs.existsSync(outputPath)) {
+            fs.unlinkSync(outputPath);
         }
-        
+
         // Define options for PDF generation
         const options = {
             settings: {
@@ -21,185 +22,79 @@ const fs = require('fs');
                     fixedWidth: null,
                     fixedHeight: null,
                     copies: 1,
-                    orientation: 'portrait',    
+                    orientation: 'portrait',
                 },
                 html: `
-                <div id="p3x-header" data-height="20mm">
-                    <h1>Header Content</h1>
+                <div id="p3x-header" data-height="40mm"">
+                    <div  style="width: 100%; padding: 0px; display: table;">
+                        <div style="display: table-cell; vertical-align: middle;">
+                            <img src="http://cdn.corifeus.com/assets/png/patrikx3.png" alt="Header Logo" style="height:40mm; margin:0;"/>
+                        </div>
+                        <div style="display: table-cell; vertical-align: middle; text-align: right; width: 100%;">
+                            <h1 style="margin: 0; font-size: 20px; color: #333;">P3X HTML Invoice</h1>
+                            <p style="margin: 5px 0 0; font-size: 14px; color: #555;">Generated: ${new Date().toLocaleDateString()}</p>
+                        </div>
+                    </div>
                 </div>
-                <div id="p3x-footer" data-height="15mm">
-                    <p>Page  \${page} / \${pages}</p>
+                <div id="p3x-footer" data-height="10mm" >
+                    <div style="text-align: right; font-size: 12px; color: #777;">Page \${page} of \${pages}</div>
                 </div>
                 <div>
-                    <h2>Main Content</h2>
-                    <p>This is a test document with a header, footer, and some main content.</p>
-                    <table width="100%" align="left" border="1">
+                    <h2 style="color: #222;">Invoice Content</h2>
+                    <p style="font-size: 14px; color: #555;">This invoice showcases structured content on a single page for detailed clarity.</p>
+                    <table style="width:100%; border-collapse: collapse; margin: 10px 0; font-size: 14px;">
                         <tr>
-                            <th align="left">Header 1</th>
-                            <th align="left">Header 2</th>
-                            <th align="left">Header 3</th>
+                            <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4;">Item</th>
+                            <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4;">Quantity</th>
+                            <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4;">Price</th>
+                            <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4;">Total</th>
+                        </tr>
+                        ${Array.from({ length: 15 }).map((_, i) => {
+                            const price = (i + 1) * 10;
+                            const quantity = (i % 5) + 1;
+                            const total = price * quantity;
+                            return `<tr>
+                                <td style="border: 1px solid #ddd; padding: 8px;">Product ${String.fromCharCode(65 + (i % 26))}</td>
+                                <td style="border: 1px solid #ddd; padding: 8px; text-align: right;">${quantity}</td>
+                                <td style="border: 1px solid #ddd; padding: 8px; text-align: right;">$${price}.00</td>
+                                <td style="border: 1px solid #ddd; padding: 8px; text-align: right;">$${total}.00</td>
+                            </tr>`;
+                        }).join('')}
+                        <tr>
+                            <td colspan="3" style="border: 1px solid #ddd; padding: 8px; text-align: right; font-weight: bold;">Subtotal</td>
+                            <td style="border: 1px solid #ddd; padding: 8px; text-align: right; font-weight: bold;">$${Array.from({ length: 15 }).reduce((acc, _, i) => acc + ((i + 1) * 10 * ((i % 5) + 1)), 0)}.00</td>
                         </tr>
                         <tr>
-                            <td>Data 1</td>
-                            <td>Data 2</td>
-                            <td>Data 3</td>
+                            <td colspan="3" style="border: 1px solid #ddd; padding: 8px; text-align: right; font-weight: bold;">VAT (20%)</td>
+                            <td style="border: 1px solid #ddd; padding: 8px; text-align: right; font-weight: bold;">$${(Array.from({ length: 15 }).reduce((acc, _, i) => acc + ((i + 1) * 10 * ((i % 5) + 1)), 0) * 0.2).toFixed(2)}</td>
                         </tr>
                         <tr>
-                            <td>Data 4</td>
-                            <td>Data 5</td>
-                            <td>Data 6</td>
-                        </tr>
-                        <tr>
-                            <td>Data 1</td>
-                            <td>Data 2</td>
-                            <td>Data 3</td>
-                        </tr>
-                        <tr>
-                            <td>Data 4</td>
-                            <td>Data 5</td>
-                            <td>Data 6</td>
-                        </tr>
-                        <tr>
-                            <td>Data 1</td>
-                            <td>Data 2</td>
-                            <td>Data 3</td>
-                        </tr>
-                        <tr>
-                            <td>Data 4</td>
-                            <td>Data 5</td>
-                            <td>Data 6</td>
-                        </tr>
-                        <tr>
-                            <td>Data 1</td>
-                            <td>Data 2</td>
-                            <td>Data 3</td>
-                        </tr>
-                        <tr>
-                            <td>Data 4</td>
-                            <td>Data 5</td>
-                            <td>Data 6</td>
-                        </tr>
-                        <tr>
-                            <td>Data 1</td>
-                            <td>Data 2</td>
-                            <td>Data 3</td>
-                        </tr>
-                        <tr>
-                            <td>Data 4</td>
-                            <td>Data 5</td>
-                            <td>Data 6</td>
-                        </tr>
-                        <tr>
-                            <td>Data 1</td>
-                            <td>Data 2</td>
-                            <td>Data 3</td>
-                        </tr>
-                        <tr>
-                            <td>Data 4</td>
-                            <td>Data 5</td>
-                            <td>Data 6</td>
-                        </tr>
-                        <tr>
-                            <td>Data 1</td>
-                            <td>Data 2</td>
-                            <td>Data 3</td>
-                        </tr>
-                        <tr>
-                            <td>Data 4</td>
-                            <td>Data 5</td>
-                            <td>Data 6</td>
+                            <td colspan="3" style="border: 1px solid #ddd; padding: 8px; text-align: right; font-weight: bold;">Total</td>
+                            <td style="border: 1px solid #ddd; padding: 8px; text-align: right; font-weight: bold;">$${(Array.from({ length: 15 }).reduce((acc, _, i) => acc + ((i + 1) * 10 * ((i % 5) + 1)), 0) * 1.2).toFixed(2)}</td>
                         </tr>
                     </table>
-                    <hr class="ng-template-page-break"/>
-                    <p>This is a test document with a header, footer, and some main content.</p>
-                    <table width="100%" align="left" border="1">
-                        <tr>
-                            <th align="left">Header 1</th>
-                            <th align="left">Header 2</th>
-                            <th align="left">Header 3</th>
-                        </tr>
-                        <tr>
-                            <td>Data 1</td>
-                            <td>Data 2</td>
-                            <td>Data 3</td>
-                        </tr>
-                        <tr>
-                            <td>Data 4</td>
-                            <td>Data 5</td>
-                            <td>Data 6</td>
-                        </tr>
-                        <tr>
-                            <td>Data 1</td>
-                            <td>Data 2</td>
-                            <td>Data 3</td>
-                        </tr>
-                        <tr>
-                            <td>Data 4</td>
-                            <td>Data 5</td>
-                            <td>Data 6</td>
-                        </tr>
-                        <tr>
-                            <td>Data 1</td>
-                            <td>Data 2</td>
-                            <td>Data 3</td>
-                        </tr>
-                        <tr>
-                            <td>Data 4</td>
-                            <td>Data 5</td>
-                            <td>Data 6</td>
-                        </tr>
-                        <tr>
-                            <td>Data 1</td>
-                            <td>Data 2</td>
-                            <td>Data 3</td>
-                        </tr>
-                        <tr>
-                            <td>Data 4</td>
-                            <td>Data 5</td>
-                            <td>Data 6</td>
-                        </tr>
-                        <tr>
-                            <td>Data 1</td>
-                            <td>Data 2</td>
-                            <td>Data 3</td>
-                        </tr>
-                        <tr>
-                            <td>Data 4</td>
-                            <td>Data 5</td>
-                            <td>Data 6</td>
-                        </tr>
-                        <tr>
-                            <td>Data 1</td>
-                            <td>Data 2</td>
-                            <td>Data 3</td>
-                        </tr>
-                        <tr>
-                            <td>Data 4</td>
-                            <td>Data 5</td>
-                            <td>Data 6</td>
-                        </tr>
-                        <tr>
-                            <td>Data 1</td>
-                            <td>Data 2</td>
-                            <td>Data 3</td>
-                        </tr>
-                        <tr>
-                            <td>Data 4</td>
-                            <td>Data 5</td>
-                            <td>Data 6</td>
-                        </tr>
-                    </table>
-                  
+                </div>
+                <div class="ng-template-page-break"></div>
+                <div>
+                    <h2 style="color: #222;">Additional Information</h2>
+                    <p style="font-size: 14px; color: #555;">This page provides further details about the invoice, payment methods, and terms. Below is a breakdown of important notes:</p>
+                    <ul style="font-size: 14px; color: #555;">
+                        <li>Payments are due within 30 days of receipt.</li>
+                        <li>Accepted payment methods include credit card, bank transfer, and PayPal.</li>
+                        <li>Please ensure that all transactions reference the invoice number provided above.</li>
+                    </ul>
+                    <p style="font-size: 14px; color: #555;">If you have any questions, feel free to contact our support team at <a href="mailto:support@p3x.com">support@p3x.com</a>.</p>
+                </div>
+                <div class="ng-template-page-break"></div>
+                <div>
+                    <h2 style="color: #222;">Final Notes</h2>
+                    <p style="font-size: 14px; color: #555;">Thank you for your business! We hope to work with you again in the future. Stay tuned for updates on our services and offerings by visiting our website or subscribing to our newsletter.</p>
                 </div>
             `,
             },
-            //qr: 'https://example.com',
-            //base: 'file://' + path.resolve(__dirname, '../src/'),
-            //css: fs.readFileSync(path.resolve(__dirname, '../src/ng-html-template.css')).toString(),
-            //jquery: fs.readFileSync(path.resolve(__dirname, '../src/jquery-1.12.4.min.js')).toString(),
-            title: 'P3X-HTML-PDF',
-            debug: true,
-            saveFile: path.resolve(__dirname ,'..', 'test-output.pdf'),
+            title: 'P3X-HTML-PDF Detailed Invoice',
+            debug: false,
+            saveFile: outputPath,
         };
 
         // Generate the PDF

@@ -6,7 +6,7 @@
 
 
 
-# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v2025.4.125
+# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v2025.4.126
 
 
   
@@ -69,7 +69,7 @@ const { generate } = require('p3x-html-pdf');
 ## 🛠️ Features
 
 - 📜 **Custom Headers and Footers**: Create professional headers and footers with dynamic placeholders.
-- 📏 **Flexible Page Settings**: Set paper size, orientation, margins, and more.
+- 🔀 **Flexible Page Settings**: Set paper size, orientation, margins, and more.
 - ⚡ **Async/Await Support**: Fully compatible with modern JavaScript workflows.
 - 📊 **Dynamic Tables and Content**: Generate tables and other dynamic HTML content easily.
 
@@ -96,7 +96,7 @@ const path = require('path');
                 <h1>Header Content</h1>
             </div>
             <div id="p3x-footer" data-height="15mm">
-                <p>Page ${page} of ${pages}</p>
+                <p>Page \${page} of \${pages}</p>
             </div>
             <div>
                 <h2>Content</h2>
@@ -157,25 +157,24 @@ const path = require('path');
 - **jquery**: The latest that works with webkit is jQuery v1.12.4
 - **javascriptDelay**: The delay before the PDF is generated as default is 1000 ms.
 
-For more options, check the official [wkhtmltopdf usage guide](https://wkhtmltopdf.org/usage/wkhtmltopdf.txt).
+For more options, check the official [wkhtmltopdf usage guide](https://wkhtmltopdf.org/usage/wkhtmltopdf.txt).  
+  
+Unfortunately the version latest HTTS is not working, so it is better to use inline images or using HTTP as that is dated but with HTTP in local filesystem is perfect.
 
 ---
 
 ## 🌟 Placeholders
 
-You can use placeholders in your HTML for dynamic data:
+You can use placeholders in your HTML for dynamic data (only these, but it is enough, the rest you can generate in HTML):
 
 - `${page}`: Current page.
 - `${pages}`: Total pages.
-- `${date}`: Current date.
-- `${isodate}`: ISO date format.
-- `${time}`: Current time.
 
 Example:
 
 ```html
 <div id="p3x-footer" data-height="15mm">
-  <p>Page ${page} of ${pages} - Generated on ${date}</p>
+  <p>Page ${page} of ${pages}</p>
 </div>
 ```
 
@@ -204,7 +203,71 @@ Download the binary manually and place it there:
 ## 🖼️ Example Output
 
 Check out an example output PDF:  
-[Example PDF](https://cdn.corifeus.com/git/html-pdf/test-output.pdf).
+[Example PDF](https://cdn.corifeus.com/git/html-pdf/assets/test-output.pdf).
+
+![Example Output](https://cdn.corifeus.com/git/html-pdf/assets/test-output.png)
+---
+
+## 🔬 Legacy Rendering with Webkit
+
+This library uses `wkhtmltopdf`, which relies on an older version of Webkit. As such, it does not support modern CSS features like `flexbox`. Instead, older solutions such as `float` and `table`-based layouts must be used for alignment. While these approaches are not modern, they are efficient and compatible with the rendering engine.
+
+For instance, the following layout works seamlessly:
+
+```html
+<div id="p3x-header" data-height="40mm">
+    <div style="width: 100%; padding: 0px; display: table;">
+        <div style="display: table-cell; vertical-align: middle;">
+            <img src="http://cdn.corifeus.com/assets/png/patrikx3.png" alt="Header Logo" style="height:40mm; margin:0;"/>
+        </div>
+        <div style="display: table-cell; vertical-align: middle; text-align: right; width: 100%;">
+            <h1 style="margin: 0; font-size: 20px; color: #333;">P3X HTML Invoice</h1>
+            <p style="margin: 5px 0 0; font-size: 14px; color: #555;">Generated: 2023-10-01</p>
+        </div>
+    </div>
+</div>
+```
+
+---
+
+## Node.js Test Example
+
+The `node ./test/test.js` script demonstrates how to generate the example PDF:
+
+```javascript
+const { generate } = require('../src/index');
+const path = require('path');
+const fs = require('fs');
+
+(async () => {
+    try {
+        const outputPath = path.resolve(__dirname, '..', 'test-output.pdf');
+        if (fs.existsSync(outputPath)) {
+            fs.unlinkSync(outputPath);
+        }
+
+        const options = {
+            settings: {
+                save: true,
+                template: {
+                    format: 'A4',
+                    orientation: 'portrait',
+                    marginLeft: 10,
+                    marginRight: 10,
+                },
+                html: '<h1>Hello PDF</h1>',
+            },
+            title: 'Test PDF',
+            saveFile: outputPath,
+        };
+
+        await generate(options);
+        console.log('PDF generated!');
+    } catch (error) {
+        console.error('Error:', error);
+    }
+})();
+```
 
 ---
 
@@ -316,7 +379,7 @@ All my domains, including [patrikx3.com](https://patrikx3.com), [corifeus.eu](ht
 ---
 
 
-[**P3X-HTML-PDF**](https://corifeus.com/html-pdf) Build v2025.4.125
+[**P3X-HTML-PDF**](https://corifeus.com/html-pdf) Build v2025.4.126
 
  [![NPM](https://img.shields.io/npm/v/p3x-html-pdf.svg)](https://www.npmjs.com/package/p3x-html-pdf)  [![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZVM4V6HVZJW6)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software)
 
