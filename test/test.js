@@ -15,6 +15,11 @@ const fs = require('fs');
             console.log(`Created directory: ${assetsPath}`);
         }
 
+        if (fs.existsSync(outputPath)) {
+            fs.unlinkSync(outputPath);
+        }
+
+
         // Define options for PDF generation
         const options = {
             settings: {
