@@ -6,7 +6,7 @@
 
 
 
-# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v2025.4.150
+# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v2025.4.151
 
 
   
@@ -63,15 +63,6 @@ Import in your project:
 ```javascript
 const { generate } = require('p3x-html-pdf');
 ```
-
----
-
-## 🛠️ Features
-
-- 📜 **Custom Headers and Footers**: Create professional headers and footers with dynamic placeholders.
-- 🔀 **Flexible Page Settings**: Set paper size, orientation, margins, and more.
-- ⚡ **Async/Await Support**: Fully compatible with modern JavaScript workflows.
-- 📊 **Dynamic Tables and Content**: Generate tables and other dynamic HTML content easily.
 
 ---
 
@@ -363,7 +354,7 @@ All my domains, including [patrikx3.com](https://patrikx3.com), [corifeus.eu](ht
 ---
 
 
-[**P3X-HTML-PDF**](https://corifeus.com/html-pdf) Build v2025.4.150
+[**P3X-HTML-PDF**](https://corifeus.com/html-pdf) Build v2025.4.151
 
  [![NPM](https://img.shields.io/npm/v/p3x-html-pdf.svg)](https://www.npmjs.com/package/p3x-html-pdf)  [![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZVM4V6HVZJW6)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software)
 
