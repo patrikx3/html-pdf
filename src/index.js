@@ -111,6 +111,18 @@ const generate = async (options) => {
             const lodashTemplateHack = `
         item = item.replace(/\\$\{page}/g, vars.page);
         item = item.replace(/\\$\{pages}/g, vars.pages);
+        item = item.replace(/\\$\{frompage}/g, vars.frompage);
+        item = item.replace(/\\$\{topage}/g, vars.topage);
+        item = item.replace(/\\$\{webpage}/g, vars.webpage);
+        item = item.replace(/\\$\{section}/g, vars.section);
+        item = item.replace(/\\$\{subsection}/g, vars.subsection);
+        item = item.replace(/\\$\{date}/g, vars.date);
+        item = item.replace(/\\$\{isodate}/g, vars.isodate);
+        item = item.replace(/\\$\{time}/g, vars.time);
+        item = item.replace(/\\$\{title}/g, vars.title);
+        item = item.replace(/\\$\{doctitle}/g, vars.doctitle);
+        item = item.replace(/\\$\{sitepage}/g, vars.sitepage);
+        item = item.replace(/\\$\{sitepages}/g, vars.sitepages);
         item = item.replace(/\\$\{qr}/g, qr);
 
 `;
@@ -145,10 +157,18 @@ var qr = ${JSON.stringify(mainsSettings.settings.qr)};
 //        console.debug('html', html)
 //        console.debug('header', header)
 
-        tmpHtmlPath = await utils.fs.ensureTempFile(html, 'html')
+        if (save) {
+            tmpPdfPath = saveFile;
+            tmpHtmlPath = `${saveFile}.html`;
+            await utils.fs.ensureFile(tmpHtmlPath, html);
+        } else {
+            tmpHtmlPath = await utils.fs.ensureTempFile(html, 'html')
+            tmpPdfPath = await utils.fs.tempFileName('pdf');
+        }
+
         tmpHtmlPathHeader = await utils.fs.ensureTempFile(header, 'html')
         tmpHtmlPathFooter = await utils.fs.ensureTempFile(footer, 'html')
-        tmpPdfPath = await utils.fs.tempFileName('pdf');
+
         //console.debug('header', footer)
         //console.debug('footer', footer)
         //console.debug('html', footer)
@@ -189,10 +209,8 @@ var qr = ${JSON.stringify(mainsSettings.settings.qr)};
 
         await utils.childProcess.exec(generatePdfCommand, debug);
 
-        if (save) {
-            await fsExtra.move(tmpPdfPath, saveFile)
-        } else {
-            return fs.readFile(tmpPdfPath);
+        if (!save) {
+            return await fs.readFile(tmpPdfPath);
         }
     } finally {
         if (tmpHtmlPath !== undefined) {

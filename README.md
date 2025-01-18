@@ -6,7 +6,7 @@
 
 
 
-# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v2025.4.152
+# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v2025.4.159
 
 
   
@@ -37,7 +37,7 @@ v22.13.0
 
 **p3x-html-pdf** is a Node.js package that generates PDFs from HTML with custom headers and footers using `wkhtmltopdf`. It is a robust tool for creating professional-grade PDFs with features like:
 
-- 📜 **Dynamic Headers and Footers**: Add placeholders for page numbers.
+- 📜 **Dynamic Headers and Footers**: Add placeholders for page numbers, dates, and more.
 - 🛠️ **Customizable Layouts**: Configure margins, orientation, and paper size.
 - ⚡ **Async/Await Support**: Modern JavaScript compatibility for efficient workflows.
 - 🔄 **Dynamic Content**: Render data-driven tables and content dynamically.
@@ -160,17 +160,28 @@ You can use placeholders in your HTML for dynamic data (only these, but it is en
 
 - `${page}`: Current page.
 - `${pages}`: Total pages.
+- `${frompage}`: The starting page of the current section.
+- `${topage}`: The ending page of the current section.
+- `${webpage}`: The URL of the web page (if applicable).
+- `${section}`: The name of the current section.
+- `${subsection}`: The name of the current subsection.
+- `${date}`: The current date in a localized format.
+- `${isodate}`: The current date in ISO 8601 format.
+- `${time}`: The current time.
+- `${title}`: The document title.
+- `${doctitle}`: The title of the document as defined in metadata.
+- `${sitepage}`: Current site page number (specific context).
+- `${sitepages}`: Total number of site pages (specific context).
 
-Example:
+### Example
 
 ```html
-<div id="p3x-footer" data-height="15mm">
+<div id="p3x-footer" data-height="10mm">
   <p>Page ${page} of ${pages}</p>
 </div>
 ```
 
 The `p3x-footer` and `p3x-header` should not have any styles other than `id` and `data-height`.
-
 ---
 
 ## 📊 Advanced Features
@@ -354,7 +365,7 @@ All my domains, including [patrikx3.com](https://patrikx3.com), [corifeus.eu](ht
 ---
 
 
-[**P3X-HTML-PDF**](https://corifeus.com/html-pdf) Build v2025.4.152
+[**P3X-HTML-PDF**](https://corifeus.com/html-pdf) Build v2025.4.150
 
  [![NPM](https://img.shields.io/npm/v/p3x-html-pdf.svg)](https://www.npmjs.com/package/p3x-html-pdf)  [![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZVM4V6HVZJW6)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software)
 

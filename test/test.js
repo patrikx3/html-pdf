@@ -46,7 +46,9 @@ const fs = require('fs');
                     </div>
                 </div>
                 <div id="p3x-footer" data-height="10mm" >
-                    <div style="text-align: right; font-size: 12px; color: #777;">Page \${page} of \${pages}</div>
+                    <div style="text-align: right; font-size: 12px; color: #777;">
+                        Page \${page} of \${pages}                       
+                    </div>
                 </div>
                 <div>
                     <h2 style="color: #222;">Invoice Content</h2>
@@ -102,7 +104,7 @@ const fs = require('fs');
             `,
             },
             title: 'P3X-HTML-PDF Detailed Invoice',
-            debug: false,
+            debug: true,
             saveFile: outputPath,
         };
 
