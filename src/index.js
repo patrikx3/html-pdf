@@ -14,7 +14,7 @@ const binPathAddon = isWin ? '' : 'wkhtmltox/';
 let binpath = path.resolve(`${__dirname}/../release/${binPathAddon}bin/wkhtmltopdf`);
 // if we are in arm64, change the binpath
 if (os.arch() === 'arm64') {
-    binpath = '/usr/local/bin/wkhtmltopdf-arm64'
+    binpath = `${__dirname}/../release/wkhtmltopdf-arm64`
 }
 
 const generate = async (options) => {
