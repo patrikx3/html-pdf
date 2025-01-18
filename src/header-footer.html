@@ -30,14 +30,16 @@
 <body>
 
 <script>
-    var itemName = baseSelector + '-' + vars.page;
+    var itemName = baseSelector + '-' + vars.page; // Default: current page-specific header/footer
+    if (vars.page == vars.pages) { // Check if it's the last page
+        itemName = baseSelector + '-last'; // Use the last page-specific header/footer
+    } else if (!items.hasOwnProperty(itemName)) { // Fallback to the default header/footer
+        itemName = baseSelector;
+    }
     var item = '';
     if (items.hasOwnProperty(itemName)) {
-        item = items[itemName]
-    } else {
-        item = items[baseSelector];
+        item = items[itemName];
     }
-    ;
     // lodash-template-hack //
     var $item = $(item);
     var $body = $('body');

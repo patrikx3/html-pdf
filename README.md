@@ -315,7 +315,7 @@ When designing headers and footers:
 `p3x-html-pdf` supports indexed headers and footers, allowing unique designs for specific pages. For example, `p3x-header-1` can define a header for the first page, while `p3x-header` applies to subsequent pages. Similarly, `p3x-footer-1` can be used for a custom first-page footer.
 
 ##### Key Points:
-1. **Indexed IDs**: Use `p3x-header-1`, `p3x-footer-1`, etc., for specific pages. Default headers (`p3x-header`) and footers (`p3x-footer`) are used when no specific index is found.
+1. **Indexed IDs**: Use `p3x-header-1`, `p3x-footer-1`, etc., for specific pages. Default headers (`p3x-header`) and footers (`p3x-footer`) are used when no specific index is found and there is `p3x-header-last` or `p3x-footer-last`.
 2. **Consistent Heights**: All headers and footers must share the same `data-height` (e.g., `40mm` for headers, `10mm` for footers) to ensure proper alignment and accurate page calculations.
 3. **Dynamic Content**: Use placeholders like `${page}` and `${pages}` to display page-specific data dynamically.
 

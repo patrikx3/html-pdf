@@ -53,9 +53,22 @@ const fs = require('fs');
                         </div>
                     </div>
                 </div>
+                <div id="p3x-header-last" data-height="40mm" >
+                    <div style="display: table; width: 100%; height: 40mm; text-align: right;">
+                        <div style="display: table-cell; vertical-align: middle; text-align: right;">
+                            <h1 style="margin: 0; font-size: 20px; color: #333;">P3X HTML Final Notes </h1>
+                            <p style="margin: 5px 0 0; font-size: 14px; color: #555;">Generated: ${new Date().toLocaleDateString()}</p>
+                        </div>
+                    </div>
+                </div>
                 <div id="p3x-footer" data-height="10mm">
                     <div style="text-align: right; font-size: 12px; color: #777;">
                         Page \${page} of \${pages}                       
+                    </div>
+                </div>
+                <div id="p3x-footer-last" data-height="10mm">
+                    <div style="text-align: right; font-size: 12px; color: #777;">
+                        Final \${page} of \${pages}                       
                     </div>
                 </div>
                 <div>
@@ -106,7 +119,6 @@ const fs = require('fs');
                 </div>
                 <div class="ng-template-page-break"></div>
                 <div>
-                    <h2 style="color: #222;">Final Notes</h2>
                     <p style="font-size: 14px; color: #555;">Thank you for your business! We hope to work with you again in the future. Stay tuned for updates on our services and offerings by visiting our website or subscribing to our newsletter.</p>
                 </div>
             `,
