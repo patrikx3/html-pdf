@@ -49,7 +49,6 @@ const fs = require('fs');
                     <div style="display: table; width: 100%; height: 40mm; text-align: right;">
                         <div style="display: table-cell; vertical-align: middle; text-align: right;">
                             <h1 style="margin: 0; font-size: 20px; color: #333;">P3X HTML Invoice </h1>
-                            <p style="margin: 5px 0 0; font-size: 14px; color: #555;">Generated: ${new Date().toLocaleDateString()}</p>
                         </div>
                     </div>
                 </div>
@@ -57,7 +56,6 @@ const fs = require('fs');
                     <div style="display: table; width: 100%; height: 40mm; text-align: right;">
                         <div style="display: table-cell; vertical-align: middle; text-align: right;">
                             <h1 style="margin: 0; font-size: 20px; color: #333;">P3X HTML Final Notes </h1>
-                            <p style="margin: 5px 0 0; font-size: 14px; color: #555;">Generated: ${new Date().toLocaleDateString()}</p>
                         </div>
                     </div>
                 </div>

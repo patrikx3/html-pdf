@@ -215,9 +215,11 @@ Headers and footers in `p3x-html-pdf` are managed via HTML templates. You can:
 - **Header IDs**:
   - `p3x-header`: The default header for all pages.
   - `p3x-header-<page>`: A header for a specific page (e.g., `p3x-header-1` for the first page).
+  - `p3x-header-last`: Last header for last page.
 - **Footer IDs**:
   - `p3x-footer`: The default footer for all pages.
   - `p3x-footer-<page>`: A footer for a specific page.
+  - `p3x-footer-last`: Last footer for last page.
 - **`data-height`**: Specifies the height of the header/footer (in millimeters). Ensure this matches the expected content size to prevent overlap.
 
 ---
@@ -245,7 +247,14 @@ The following example demonstrates a **custom header** for the first page and a 
     <div style="display: table; width: 100%; height: 40mm; text-align: right;">
         <div style="display: table-cell; vertical-align: middle; text-align: right;">
             <h1 style="margin: 0; font-size: 20px; color: #333;">P3X HTML Invoice</h1>
-            <p style="margin: 5px 0 0; font-size: 14px; color: #555;">Generated: ${new Date().toLocaleDateString()}</p>
+        </div>
+    </div>
+</div>
+
+<div id="p3x-header-last" data-height="40mm" >
+    <div style="display: table; width: 100%; height: 40mm; text-align: right;">
+        <div style="display: table-cell; vertical-align: middle; text-align: right;">
+            <h1 style="margin: 0; font-size: 20px; color: #333;">P3X HTML Final Notes </h1>
         </div>
     </div>
 </div>
