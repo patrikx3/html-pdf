@@ -58,7 +58,7 @@ const fs = require('fs');
                             <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4;">Price</th>
                             <th style="border: 1px solid #ddd; padding: 8px; background-color: #f4f4f4;">Total</th>
                         </tr>
-                        ${Array.from({ length: 27 }).map((_, i) => {
+                        ${Array.from({ length: 26 }).map((_, i) => {
                             const price = (i + 1) * 10;
                             const quantity = (i % 5) + 1;
                             const total = price * quantity;
