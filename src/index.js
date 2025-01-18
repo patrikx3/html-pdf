@@ -45,7 +45,7 @@ const generate = async (options) => {
         const baseHtml = (await fs.readFile(`${__dirname}/base.html`)).toString();
         const baseHtmlFooterHeader = (await fs.readFile(`${__dirname}/header-footer.html`)).toString();
 
-        options.base = options.base || 'file://' + __dirname;
+        options.base = options.base || 'file://' + process.cwd();
         options.css = options.css || (await fs.readFile(`${__dirname}/html-template.css`)).toString();
         options.jquery = options.jquery || (await fs.readFile(`${__dirname}/jquery-1.12.4.min.js`)).toString();
 
