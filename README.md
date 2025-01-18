@@ -37,7 +37,7 @@ v22.13.0
 
 **p3x-html-pdf** is a Node.js package that generates PDFs from HTML with custom headers and footers using `wkhtmltopdf`. It is a robust tool for creating professional-grade PDFs with features like:
 
-- 📜 **Dynamic Headers and Footers**: Add placeholders for page numbers, dates, and more.
+- 📜 **Dynamic Headers and Footers**: Add placeholders for page numbers.
 - 🛠️ **Customizable Layouts**: Configure margins, orientation, and paper size.
 - ⚡ **Async/Await Support**: Modern JavaScript compatibility for efficient workflows.
 - 🔄 **Dynamic Content**: Render data-driven tables and content dynamically.
