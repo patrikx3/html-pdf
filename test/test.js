@@ -7,7 +7,7 @@ const fs = require('fs');
     try {
         // Define the output path
         const assetsPath = path.resolve(__dirname, '..', 'assets');
-        const outputPath = path.join(assetsPath, 'p3x-html-pdf-example.pdf');
+        const outputPath = path.join(assetsPath, 'p3x-html-pdf-output.pdf');
 
         // Ensure the assets directory exists
         if (!fs.existsSync(assetsPath)) {
@@ -92,7 +92,7 @@ const fs = require('fs');
                         <li>Accepted payment methods include credit card, bank transfer, and PayPal.</li>
                         <li>Please ensure that all transactions reference the invoice number provided above.</li>
                     </ul>
-                    <p style="font-size: 14px; color: #555;">If you have any questions, feel free to contact our support team at <a href="mailto:support@corifeus.com">support@corifeus.com</a>.</p>
+                    <p style="font-size: 14px; color: #555;">If you have any questions, feel free to contact our support team at <a href="mailto:support@patrikx3.com">support@patrikx3.com</a>.</p>
                 </div>
                 <div class="ng-template-page-break"></div>
                 <div>
