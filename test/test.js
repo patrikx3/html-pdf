@@ -5,10 +5,14 @@ const fs = require('fs');
 
 (async () => {
     try {
-        // Delete the output file if it already exists
-        const outputPath = path.resolve(__dirname, '..', 'assets', 'p3x-html-pdf-example.pdf');
-        if (fs.existsSync(outputPath)) {
-            fs.unlinkSync(outputPath);
+        // Define the output path
+        const assetsPath = path.resolve(__dirname, '..', 'assets');
+        const outputPath = path.join(assetsPath, 'p3x-html-pdf-example.pdf');
+
+        // Ensure the assets directory exists
+        if (!fs.existsSync(assetsPath)) {
+            fs.mkdirSync(assetsPath, { recursive: true }); // Create the directory if it doesn't exist
+            console.log(`Created directory: ${assetsPath}`);
         }
 
         // Define options for PDF generation
