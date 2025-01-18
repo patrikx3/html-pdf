@@ -6,7 +6,7 @@
 
 
 
-# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v2025.4.159
+# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v2025.4.154
 
 
   
@@ -181,7 +181,8 @@ You can use placeholders in your HTML for dynamic data (only these, but it is en
 </div>
 ```
 
-The `p3x-footer` and `p3x-header` should not have any styles other than `id` and `data-height`.
+The `p3x-footer` and `p3x-header` should not have any styles other than `id` and `data-height`.  
+
 ---
 
 ## 📊 Advanced Features
@@ -191,6 +192,149 @@ The `p3x-footer` and `p3x-header` should not have any styles other than `id` and
 - **Dynamic Content**: Inject dynamic tables, invoices, or other content into the PDF.
 
 ---
+
+## 🌟 Headers and Footers in `p3x-html-pdf`
+
+This document provides a detailed explanation of how to work with headers and footers using `p3x-html-pdf`, including first-page-specific headers and indexed headers for subsequent pages. With this approach, you can create professional-grade PDFs with precise control over header and footer content.
+
+---
+
+### 📖 Overview
+
+Headers and footers in `p3x-html-pdf` are managed via HTML templates. You can:
+- Define **default headers and footers** for all pages.
+- Create **specific headers or footers** for certain pages using indexing (e.g., `p3x-header-1` for the first page).
+- Dynamically calculate content for headers and footers, such as page numbers, document titles, or custom logic.
+
+---
+
+### 🚀 How It Works
+
+`p3x-html-pdf` uses the `id` attribute and `data-height` to manage headers and footers. The key attributes and elements are:
+
+- **Header IDs**:
+  - `p3x-header`: The default header for all pages.
+  - `p3x-header-<page>`: A header for a specific page (e.g., `p3x-header-1` for the first page).
+- **Footer IDs**:
+  - `p3x-footer`: The default footer for all pages.
+  - `p3x-footer-<page>`: A footer for a specific page.
+- **`data-height`**: Specifies the height of the header/footer (in millimeters). Ensure this matches the expected content size to prevent overlap.
+
+---
+
+### 🌟 Example: First Page Header and Default Header
+
+The following example demonstrates a **custom header** for the first page and a **default header** for the rest of the document.
+
+#### HTML Template
+
+```html
+<div id="p3x-header-1" data-height="40mm">
+    <div style="width: 100%; padding: 0px; display: table;">
+        <div style="display: table-cell; vertical-align: middle;">
+            <img src="http://cdn.corifeus.com/assets/png/patrikx3.png" alt="Header Logo" style="height:40mm; margin:0;"/>
+        </div>
+        <div style="display: table-cell; vertical-align: middle; text-align: right; width: 100%;">
+            <h1 style="margin: 0; font-size: 20px; color: #333;">P3X HTML Invoice - First Page</h1>
+            <p style="margin: 5px 0 0; font-size: 14px; color: #555;">Generated: ${new Date().toLocaleDateString()}</p>
+        </div>
+    </div>
+</div>
+
+<div id="p3x-header" data-height="40mm">
+    <div style="display: table; width: 100%; height: 40mm; text-align: right;">
+        <div style="display: table-cell; vertical-align: middle; text-align: right;">
+            <h1 style="margin: 0; font-size: 20px; color: #333;">P3X HTML Invoice</h1>
+            <p style="margin: 5px 0 0; font-size: 14px; color: #555;">Generated: ${new Date().toLocaleDateString()}</p>
+        </div>
+    </div>
+</div>
+
+<div id="p3x-footer" data-height="10mm">
+    <div style="text-align: right; font-size: 12px; color: #777;">
+        Page ${page} of ${pages}
+    </div>
+</div>
+```
+
+---
+
+### 🛠️ Dynamic Header and Footer Logic
+
+- Use indexed headers or footers for specific pages.
+- Utilize placeholders like `${page}` and `${pages}` to dynamically display the current page and total pages.
+
+#### Example Configuration in JavaScript
+
+```javascript
+const options = {
+    settings: {
+        save: true,
+        template: {
+            format: 'A4',
+            marginLeft: 10,
+            marginRight: 10,
+            orientation: 'portrait',
+        },
+        html: `
+        <div id="p3x-header-1" data-height="40mm">
+            <!-- Custom header for the first page -->
+        </div>
+        <div id="p3x-header" data-height="40mm">
+            <!-- Default header for subsequent pages -->
+        </div>
+        <div id="p3x-footer" data-height="10mm">
+            <!-- Footer for all pages -->
+        </div>
+        `,
+    },
+    title: 'Dynamic Headers and Footers Example',
+    saveFile: path.resolve(__dirname, 'output.pdf'),
+};
+```
+
+---
+
+### 📏 Calculating Headers and Footers per Page
+
+When designing headers and footers:
+1. **Estimate Content Size:**
+   - Use `data-height` to reserve enough space for your header or footer content.
+   - Example: A header with a logo and text may need `40mm`.
+
+2. **Adjust Margins:**
+   - Ensure the margins accommodate both the header/footer and the main content.
+
+3. **Testing for Multi-Page Documents:**
+   - For multi-page documents, validate the alignment of headers and footers across all pages.
+
+---
+
+#### 📄 Headers and Footers with Indexed Customization
+
+`p3x-html-pdf` supports indexed headers and footers, allowing unique designs for specific pages. For example, `p3x-header-1` can define a header for the first page, while `p3x-header` applies to subsequent pages. Similarly, `p3x-footer-1` can be used for a custom first-page footer.
+
+##### Key Points:
+1. **Indexed IDs**: Use `p3x-header-1`, `p3x-footer-1`, etc., for specific pages. Default headers (`p3x-header`) and footers (`p3x-footer`) are used when no specific index is found.
+2. **Consistent Heights**: All headers and footers must share the same `data-height` (e.g., `40mm` for headers, `10mm` for footers) to ensure proper alignment and accurate page calculations.
+3. **Dynamic Content**: Use placeholders like `${page}` and `${pages}` to display page-specific data dynamically.
+
+This approach allows tailored styling for specific pages while maintaining consistent layouts throughout the document.
+  
+--- 
+  
+### 📊 Advanced Features
+
+- Combine **indexed headers/footers** for specific pages with a **default** fallback.
+- Use JavaScript in the `header-footer.html` template to dynamically adjust content.
+- Use indexed configurations to simulate "first-page" or "last-page" behavior.
+
+---
+
+### 🖼️ Example Output
+
+You can generate a PDF with the provided configuration to see how headers and footers are applied dynamically. For larger documents, this approach allows consistent styling with room for customization.
+
 
 ## 🌍 Architecture
 
@@ -365,7 +509,7 @@ All my domains, including [patrikx3.com](https://patrikx3.com), [corifeus.eu](ht
 ---
 
 
-[**P3X-HTML-PDF**](https://corifeus.com/html-pdf) Build v2025.4.150
+[**P3X-HTML-PDF**](https://corifeus.com/html-pdf) Build v2025.4.154
 
  [![NPM](https://img.shields.io/npm/v/p3x-html-pdf.svg)](https://www.npmjs.com/package/p3x-html-pdf)  [![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZVM4V6HVZJW6)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software)
 
