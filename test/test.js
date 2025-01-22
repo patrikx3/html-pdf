@@ -104,7 +104,7 @@ const fs = require('fs');
                         </tr>
                     </table>
                 </div>
-                <div class="ng-template-page-break"></div>
+                <div class="p3x-template-page-break"></div>
                 <div>
                     <h2 style="color: #222;">Additional Information</h2>
                     <p style="font-size: 14px; color: #555;">This page provides further details about the invoice, payment methods, and terms. Below is a breakdown of important notes:</p>
@@ -115,7 +115,7 @@ const fs = require('fs');
                     </ul>
                     <p style="font-size: 14px; color: #555;">If you have any questions, feel free to contact our support team at <a href="mailto:support@patrikx3.com">support@patrikx3.com</a>.</p>
                 </div>
-                <div class="ng-template-page-break"></div>
+                <div class="p3x-template-page-break"></div>
                 <div>
                     <p style="font-size: 14px; color: #555;">Thank you for your business! We hope to work with you again in the future. Stay tuned for updates on our services and offerings by visiting our website or subscribing to our newsletter.</p>
                 </div>

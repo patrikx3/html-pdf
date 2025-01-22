@@ -1,12 +1,12 @@
 {
     "name": "p3x-html-pdf",
-    "version": "2025.4.163",
+    "version": "2025.4.164",
     "corifeus": {
         "prefix": "p3x-",
         "publish": true,
         "type": "p3x",
         "code": "Venture",
-        "nodejs": "v22.13.0",
+        "nodejs": "v22.13.1",
         "opencollective": false,
         "reponame": "html-pdf",
         "build": true

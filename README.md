@@ -6,7 +6,7 @@
 
 
 
-# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v2025.4.163
+# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v2025.4.164
 
 
   
@@ -22,7 +22,7 @@
 ### 🛠️ Built on NodeJs version
 
 ```txt
-v22.13.0
+v22.13.1
 ```
 
 
@@ -158,7 +158,7 @@ const path = require('path');
                     </tr>
                 </table>
             </div>
-            <div class="ng-template-page-break"></div>
+            <div class="p3x-template-page-break"></div>
             <div>
                 <h2 style="color: #222;">Additional Information</h2>
                 <p style="font-size: 14px; color: #555;">This page provides further details about the invoice, payment methods, and terms. Below is a breakdown of important notes:</p>
@@ -169,7 +169,7 @@ const path = require('path');
                 </ul>
                 <p style="font-size: 14px; color: #555;">If you have any questions, feel free to contact our support team at <a href="mailto:support@patrikx3.com">support@patrikx3.com</a>.</p>
             </div>
-            <div class="ng-template-page-break"></div>
+            <div class="np3x-template-page-break"></div>
             <div>
                 <p style="font-size: 14px; color: #555;">Thank you for your business! We hope to work with you again in the future. Stay tuned for updates on our services and offerings by visiting our website or subscribing to our newsletter.</p>
             </div>
@@ -582,7 +582,7 @@ All my domains, including [patrikx3.com](https://patrikx3.com), [corifeus.eu](ht
 ---
 
 
-[**P3X-HTML-PDF**](https://corifeus.com/html-pdf) Build v2025.4.163
+[**P3X-HTML-PDF**](https://corifeus.com/html-pdf) Build v2025.4.164
 
  [![NPM](https://img.shields.io/npm/v/p3x-html-pdf.svg)](https://www.npmjs.com/package/p3x-html-pdf)  [![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZVM4V6HVZJW6)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software)
 
