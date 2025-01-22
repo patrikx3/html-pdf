@@ -6,7 +6,7 @@
 
 
 
-# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v2025.4.164
+# 📃 Generates PDF from HTML with custom headers and footers with wkhtmltopdf v2025.4.165
 
 
   
@@ -216,6 +216,31 @@ For more options, check the official [wkhtmltopdf usage guide](https://wkhtmltop
   
 Unfortunately the version latest HTTPS TLS 1.3 is not working, so it is better to use inline filesystem images or using HTTP as that is dated but still works.
 
+### How to Add a Page Break with `p3x-html-pdf`
+
+To insert a page break, simply use the following snippet:
+
+```html
+<div class="p3x-template-page-break"></div>
+```
+
+#### ✅ Key Points:
+- 🔧 **No additional CSS** is required; the functionality is built-in.
+- 📑 The content after this `<div>` will automatically start on a new page.
+- 🧹 Ensure your HTML structure is clean for proper rendering.
+
+#### 📝 Example:
+```html
+<div>
+  <p>📜 This content will be on the first page.</p>
+</div>
+
+<div class="p3x-template-page-break"></div>
+
+<div>
+  <p>📜 This content will appear on the next page.</p>
+</div>
+```
 ---
 
 ## 🌟 Placeholders
@@ -582,7 +607,7 @@ All my domains, including [patrikx3.com](https://patrikx3.com), [corifeus.eu](ht
 ---
 
 
-[**P3X-HTML-PDF**](https://corifeus.com/html-pdf) Build v2025.4.164
+[**P3X-HTML-PDF**](https://corifeus.com/html-pdf) Build v2025.4.165
 
  [![NPM](https://img.shields.io/npm/v/p3x-html-pdf.svg)](https://www.npmjs.com/package/p3x-html-pdf)  [![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZVM4V6HVZJW6)  [![Contact Corifeus / P3X](https://img.shields.io/badge/Contact-P3X-ff9900.svg)](https://www.patrikx3.com/en/front/contact) [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software)
 
