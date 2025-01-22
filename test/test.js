@@ -122,12 +122,19 @@ const fs = require('fs');
             `,
             },
             title: 'P3X-HTML-PDF Detailed Invoice',
-            debug: true,
+            debug: false,
             saveFile: outputPath,
         };
 
         // Generate the PDF
         await generate(options);
+
+        options.settings.save = false;
+
+        const buffer = await generate(options);
+
+        console.log('--------------------------------------------------------------')
+        console.log('PDF Buffer:', buffer);
 
         console.log('PDF generation successful! Check test-output.pdf.');
     } catch (error) {
