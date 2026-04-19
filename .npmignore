@@ -5,3 +5,9 @@
 /.github
 /.vscode
 /release
+secure/
+agents/
+.claude/
+.codex/
+CLAUDE.md
+AGENTS.md
