@@ -1,6 +1,6 @@
 {
     "name": "p3x-html-pdf",
-    "version": "2026.4.170",
+    "version": "2026.4.175",
     "corifeus": {
         "icon": "fas fa-file-pdf",
         "prefix": "p3x-",
@@ -40,12 +40,12 @@
     },
     "homepage": "https://corifeus.com/html-pdf",
     "devDependencies": {
-        "corifeus-builder": "^2026.4.143"
+        "corifeus-builder": "^2026.4.149"
     },
     "dependencies": {
-        "cheerio": "^1.0.0",
-        "corifeus-utils": "^2025.4.123",
-        "fs-extra": "^11.3.0",
+        "cheerio": "^1.2.0",
+        "corifeus-utils": "^2026.4.130",
+        "fs-extra": "^11.3.4",
         "progress": "^2.0.3"
     },
     "engines": {
